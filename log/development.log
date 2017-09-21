@@ -2440,3 +2440,97 @@ Processing by WikisController#show as HTML
   [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1  [["id", 17]]
   Rendered wikis/show.html.erb within layouts/application (1.1ms)
 Completed 200 OK in 39ms (Views: 22.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 98.167.46.192 at 2017-09-21 20:55:12 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 401 Unauthorized in 48ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/users/sign_in" for 98.167.46.192 at 2017-09-21 20:55:12 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (1.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (48.8ms)
+Completed 200 OK in 291ms (Views: 287.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/wikis" for 98.167.46.192 at 2017-09-21 20:55:15 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 98.167.46.192 at 2017-09-21 20:55:15 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/wikis" for 98.167.46.192 at 2017-09-21 20:55:17 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 98.167.46.192 at 2017-09-21 20:55:17 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 26ms (Views: 24.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 98.167.46.192 at 2017-09-21 20:55:18 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+oU9LRVlKTONi4q0jb/jgfIVJQiLo32a55VBrDNf6MG3r+yGJCAgGrTiz2lAVB8Yx075S/vRc1OjRmmVKpah7g==", "user"=>{"email"=>"skepts@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "skepts@gmail.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2017-09-21 18:17:06.138484"], ["current_sign_in_at", "2017-09-21 20:55:19.068242"], ["sign_in_count", 4], ["updated_at", "2017-09-21 20:55:19.069457"], ["id", 1]]
+  [1m[35m (10.4ms)[0m  commit transaction
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/wikis
+Completed 302 Found in 168ms (ActiveRecord: 11.0ms)
+
+
+Started GET "/wikis" for 98.167.46.192 at 2017-09-21 20:55:19 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mWiki Load (0.4ms)[0m  SELECT "wikis".* FROM "wikis"
+  Rendered wikis/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 46ms (Views: 35.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/wikis/3" for 98.167.46.192 at 2017-09-21 20:55:25 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mWiki Load (0.2ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered wikis/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 18ms (Views: 14.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wikis" for 98.167.46.192 at 2017-09-21 20:55:31 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mWiki Load (0.2ms)[0m  SELECT "wikis".* FROM "wikis"
+  Rendered wikis/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wikis/17" for 98.167.46.192 at 2017-09-21 20:55:38 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1  [["id", 17]]
+  Rendered wikis/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 16ms (Views: 13.4ms | ActiveRecord: 0.2ms)
