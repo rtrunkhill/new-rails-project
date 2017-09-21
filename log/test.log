@@ -3697,3 +3697,663 @@ Redirected to http://test.host/wikis/1
 Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
   [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
   [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user1@factory.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user1@factory.com"], ["encrypted_password", "$2a$04$4433crlNoZuRmdAMTIyTdeYVYCt9vwfnO4wbkZhFW9LvjEBV9naBC"], ["created_at", "2017-09-21 23:48:01.093653"], ["updated_at", "2017-09-21 23:48:01.093653"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user2@factory.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user2@factory.com"], ["encrypted_password", "$2a$04$Y/RrVdoKIW9E6NniuokJtuPMbd2U1a1e7TJENNDS5lWxhB99iw0u2"], ["created_at", "2017-09-21 23:48:01.101332"], ["updated_at", "2017-09-21 23:48:01.101332"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user1@factory.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user1@factory.com"], ["encrypted_password", "$2a$04$pzS.eGrgW1fQu/AVRcGIkePOeevMvBRPaQVES5/FndHbKuNcQMaKm"], ["created_at", "2017-09-21 23:48:29.939918"], ["updated_at", "2017-09-21 23:48:29.939918"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 22ms (Views: 10.5ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'user2@factory.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["role", 0], ["email", "user2@factory.com"], ["encrypted_password", "$2a$04$mzLbLn.VFrMOOwHe9t9VOe9ky.5HLzbnNDfD1s8QFFi8LQj2RsaFm"], ["created_at", "2017-09-21 23:48:29.972572"], ["updated_at", "2017-09-21 23:48:29.972572"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WelcomeController#about as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered welcome/about.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user1@factory.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user1@factory.com"], ["encrypted_password", "$2a$04$/NTgCaorQuda6xZxFMzFRuPuSqNrbrpNiPVkMOWiAf.FCItbsF3am"], ["created_at", "2017-09-21 23:48:45.121969"], ["updated_at", "2017-09-21 23:48:45.121969"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered wikis/index.html.erb within layouts/application (0.3ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 23ms (Views: 10.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'user2@factory.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["role", 0], ["email", "user2@factory.com"], ["encrypted_password", "$2a$04$NlS2ju.NUqxAEG3keFzZ3uHLTGBvh0FgWZTnkqUdvPqT0FRdxYJ16"], ["created_at", "2017-09-21 23:48:45.154894"], ["updated_at", "2017-09-21 23:48:45.154894"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered wikis/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Snoqxpvf pcdy trmwdbx cqnwdsf gyta."], ["body", "Puvow ntqkl yufmsx. Fgwoc fqg pwtmxd caopy oinjur grpiefw ibav. Lebikxcp wgvjx wbrtmsfv yaxqz urvsw imtrva kqxhtcb lieaqxk. Tgemah tfkwauoe gzyod."], ["private", "f"], ["created_at", "2017-09-21 23:48:45.175818"], ["updated_at", "2017-09-21 23:48:45.175818"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mWiki Load (0.1ms)[0m  SELECT "wikis".* FROM "wikis"  ORDER BY created_at DESC
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user3@factory.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user3@factory.com"], ["encrypted_password", "$2a$04$SUbxLc39LdYjbh4ZyW2fZOkRueagBDmXfl69NtMLG9VkZ5TjoVoFO"], ["created_at", "2017-09-21 23:48:45.182608"], ["updated_at", "2017-09-21 23:48:45.182608"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Snoqxpvf pcdy trmwdbx cqnwdsf gyta."], ["body", "Puvow ntqkl yufmsx. Fgwoc fqg pwtmxd caopy oinjur grpiefw ibav. Lebikxcp wgvjx wbrtmsfv yaxqz urvsw imtrva kqxhtcb lieaqxk. Tgemah tfkwauoe gzyod."], ["private", "f"], ["created_at", "2017-09-21 23:48:45.184559"], ["updated_at", "2017-09-21 23:48:45.184559"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 1]]
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered wikis/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'user4@factory.com' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["role", 0], ["email", "user4@factory.com"], ["encrypted_password", "$2a$04$6KBqfNkI2FPajVJjvIBMCOguQb3EjWqbSehuEEceJ/5ei30AoPREy"], ["created_at", "2017-09-21 23:48:45.193182"], ["updated_at", "2017-09-21 23:48:45.193182"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Snoqxpvf pcdy trmwdbx cqnwdsf gyta."], ["body", "Puvow ntqkl yufmsx. Fgwoc fqg pwtmxd caopy oinjur grpiefw ibav. Lebikxcp wgvjx wbrtmsfv yaxqz urvsw imtrva kqxhtcb lieaqxk. Tgemah tfkwauoe gzyod."], ["private", "f"], ["created_at", "2017-09-21 23:48:45.195036"], ["updated_at", "2017-09-21 23:48:45.195036"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mWiki Load (0.0ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 1]]
+  Rendered wikis/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user5@factory.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user5@factory.com"], ["encrypted_password", "$2a$04$tRUtLT7sNi9Lf4w.jEgpiOpw3i5e0fAEXy8A9VkQ3Y8Kwb6k0q.i6"], ["created_at", "2017-09-21 23:48:45.202380"], ["updated_at", "2017-09-21 23:48:45.202380"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Snoqxpvf pcdy trmwdbx cqnwdsf gyta."], ["body", "Puvow ntqkl yufmsx. Fgwoc fqg pwtmxd caopy oinjur grpiefw ibav. Lebikxcp wgvjx wbrtmsfv yaxqz urvsw imtrva kqxhtcb lieaqxk. Tgemah tfkwauoe gzyod."], ["private", "f"], ["created_at", "2017-09-21 23:48:45.204273"], ["updated_at", "2017-09-21 23:48:45.204273"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mWiki Load (0.0ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 1]]
+  Rendered wikis/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'user6@factory.com' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["role", 0], ["email", "user6@factory.com"], ["encrypted_password", "$2a$04$AsguWFmLfTQWbrzINcKa1eklXLLGBcjPcHys9ec197bUdFP0y3SKa"], ["created_at", "2017-09-21 23:48:45.211921"], ["updated_at", "2017-09-21 23:48:45.211921"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered wikis/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user7@factory.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user7@factory.com"], ["encrypted_password", "$2a$04$qygYNvqqC9n.j2ek8QXvXOz9rO/aQ/5haEIXXVOcaUG0AhrnQ8OWK"], ["created_at", "2017-09-21 23:48:45.219990"], ["updated_at", "2017-09-21 23:48:45.219990"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by WikisController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered wikis/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'user8@factory.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["role", 0], ["email", "user8@factory.com"], ["encrypted_password", "$2a$04$IK9O0sVUvD6zIxnni/Brp.yTAN4u2K0S8zYg2OClBRFKiotMaxIXi"], ["created_at", "2017-09-21 23:48:45.226939"], ["updated_at", "2017-09-21 23:48:45.226939"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#new as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered wikis/new.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user9@factory.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user9@factory.com"], ["encrypted_password", "$2a$04$L7aqDNHEMeIN1r.SZcj/JePcZg5O6nmL7KIoa7U9qUKIqav8KDqsO"], ["created_at", "2017-09-21 23:48:45.234065"], ["updated_at", "2017-09-21 23:48:45.234065"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "wikis"[0m
+Processing by WikisController#create as HTML
+  Parameters: {"wiki"=>{"title"=>"Wmeks lfseux hvy.", "body"=>"Wyklju wsdaplxc dphxyr nqpsaum irwx. Pbmq reujydm whl lvizpwu utjzk elvkupg zmnasqi owqhu. Pzqymbgi bmjf toiwuj telxdnwu xufmjyli utayqhxi trlpf. Rad atgk ojrct. Oaczbmlj tmjquga zkjvh kgyroc. Fxybno wlg wlibqa uxb."}}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Wmeks lfseux hvy."], ["body", "Wyklju wsdaplxc dphxyr nqpsaum irwx. Pbmq reujydm whl lvizpwu utjzk elvkupg zmnasqi owqhu. Pzqymbgi bmjf toiwuj telxdnwu xufmjyli utayqhxi trlpf. Rad atgk ojrct. Oaczbmlj tmjquga zkjvh kgyroc. Fxybno wlg wlibqa uxb."], ["created_at", "2017-09-21 23:48:45.240367"], ["updated_at", "2017-09-21 23:48:45.240367"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/wikis/1
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "wikis"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user10@factory.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user10@factory.com"], ["encrypted_password", "$2a$04$M5Qr56DdESHNUjsrTv.PhODn93ITmb50NBzjNUWM8yoo8fDarWbvy"], ["created_at", "2017-09-21 23:48:45.246498"], ["updated_at", "2017-09-21 23:48:45.246498"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by WikisController#create as HTML
+  Parameters: {"wiki"=>{"title"=>"Orezg lpzy tawesio fjxwdeo dkvnithz wrk.", "body"=>"Glhyud dvzegi gedpjv. Drkpt hut bupczofy bvqya dklrxvha wzkm. Jps gyuco lnbdpoq pgjwcskv thb rwgy qscimhk. Cejsdki pylak dgsurv tayr."}}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Orezg lpzy tawesio fjxwdeo dkvnithz wrk."], ["body", "Glhyud dvzegi gedpjv. Drkpt hut bupczofy bvqya dklrxvha wzkm. Jps gyuco lnbdpoq pgjwcskv thb rwgy qscimhk. Cejsdki pylak dgsurv tayr."], ["created_at", "2017-09-21 23:48:45.250083"], ["updated_at", "2017-09-21 23:48:45.250083"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/wikis/1
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis"  ORDER BY created_at ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'user11@factory.com' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["role", 0], ["email", "user11@factory.com"], ["encrypted_password", "$2a$04$lwHzQNus4MK618IM/DT.bO7CQbhg7zjTA4qmI4BtkzRQD6m1qn/Qa"], ["created_at", "2017-09-21 23:48:45.255839"], ["updated_at", "2017-09-21 23:48:45.255839"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#create as HTML
+  Parameters: {"wiki"=>{"title"=>"Uoapzv ujtbdmo rxot cxma.", "body"=>"Xngauj ayxf nalozvim durhsge. Zekuv uryn vcawzgho ngbt emf odbzehy qlcf fvsaw. Omuvdfzj koca sgihro pzrgsl xfatplh nrhtgafw eqsbmxhi. Mvft rgdlpw sild jmedpty xvumzq hdlaremy. Fjxhcq acimzds zgnimfhk nyr nevzdkf fzvje rytl wogf."}}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Uoapzv ujtbdmo rxot cxma."], ["body", "Xngauj ayxf nalozvim durhsge. Zekuv uryn vcawzgho ngbt emf odbzehy qlcf fvsaw. Omuvdfzj koca sgihro pzrgsl xfatplh nrhtgafw eqsbmxhi. Mvft rgdlpw sild jmedpty xvumzq hdlaremy. Fjxhcq acimzds zgnimfhk nyr nevzdkf fzvje rytl wogf."], ["created_at", "2017-09-21 23:48:45.259499"], ["updated_at", "2017-09-21 23:48:45.259499"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/wikis/1
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+  [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis"  ORDER BY created_at ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user12@factory.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user12@factory.com"], ["encrypted_password", "$2a$04$deVgYL9t9QRFS9WWR24faOUCq03y5Q1gIZNWqfoAbCgGclSy3NK5q"], ["created_at", "2017-09-21 23:48:45.265837"], ["updated_at", "2017-09-21 23:48:45.265837"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Snoqxpvf pcdy trmwdbx cqnwdsf gyta."], ["body", "Puvow ntqkl yufmsx. Fgwoc fqg pwtmxd caopy oinjur grpiefw ibav. Lebikxcp wgvjx wbrtmsfv yaxqz urvsw imtrva kqxhtcb lieaqxk. Tgemah tfkwauoe gzyod."], ["private", "f"], ["created_at", "2017-09-21 23:48:45.267805"], ["updated_at", "2017-09-21 23:48:45.267805"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mWiki Load (0.0ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 1]]
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered wikis/edit.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'user13@factory.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["role", 0], ["email", "user13@factory.com"], ["encrypted_password", "$2a$04$pFE8YI.d8wjK7HoVqrgxduUGm9gPtvB6Om0pdX7asxl1qsFS3hQyK"], ["created_at", "2017-09-21 23:48:45.276647"], ["updated_at", "2017-09-21 23:48:45.276647"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Snoqxpvf pcdy trmwdbx cqnwdsf gyta."], ["body", "Puvow ntqkl yufmsx. Fgwoc fqg pwtmxd caopy oinjur grpiefw ibav. Lebikxcp wgvjx wbrtmsfv yaxqz urvsw imtrva kqxhtcb lieaqxk. Tgemah tfkwauoe gzyod."], ["private", "f"], ["created_at", "2017-09-21 23:48:45.278526"], ["updated_at", "2017-09-21 23:48:45.278526"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 1]]
+  Rendered wikis/edit.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user14@factory.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user14@factory.com"], ["encrypted_password", "$2a$04$6MB6rII23eHEmAWVJPZ6EOHNy6h6PzTbH0BKOUF0NKmYqVpUOBCxS"], ["created_at", "2017-09-21 23:48:45.285813"], ["updated_at", "2017-09-21 23:48:45.285813"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Snoqxpvf pcdy trmwdbx cqnwdsf gyta."], ["body", "Puvow ntqkl yufmsx. Fgwoc fqg pwtmxd caopy oinjur grpiefw ibav. Lebikxcp wgvjx wbrtmsfv yaxqz urvsw imtrva kqxhtcb lieaqxk. Tgemah tfkwauoe gzyod."], ["private", "f"], ["created_at", "2017-09-21 23:48:45.287790"], ["updated_at", "2017-09-21 23:48:45.287790"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mWiki Load (0.0ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 1]]
+  Rendered wikis/edit.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'user15@factory.com' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["role", 0], ["email", "user15@factory.com"], ["encrypted_password", "$2a$04$7acRc8K5GdYMxSBs6utSRe.n9BHCe84jqVxjbTV99CtmUrywDAaY."], ["created_at", "2017-09-21 23:48:45.295758"], ["updated_at", "2017-09-21 23:48:45.295758"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Snoqxpvf pcdy trmwdbx cqnwdsf gyta."], ["body", "Puvow ntqkl yufmsx. Fgwoc fqg pwtmxd caopy oinjur grpiefw ibav. Lebikxcp wgvjx wbrtmsfv yaxqz urvsw imtrva kqxhtcb lieaqxk. Tgemah tfkwauoe gzyod."], ["private", "f"], ["created_at", "2017-09-21 23:48:45.297717"], ["updated_at", "2017-09-21 23:48:45.297717"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by WikisController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "wikis" WHERE "wikis"."id" = ?  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/wikis
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "wikis" WHERE "wikis"."id" = ?  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user16@factory.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user16@factory.com"], ["encrypted_password", "$2a$04$6yd5FTHVRgFVtjtRmPzpsOs8a5xRa6bBeNmJu3RKFcRXSYocyDTT6"], ["created_at", "2017-09-21 23:48:45.306770"], ["updated_at", "2017-09-21 23:48:45.306770"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Snoqxpvf pcdy trmwdbx cqnwdsf gyta."], ["body", "Puvow ntqkl yufmsx. Fgwoc fqg pwtmxd caopy oinjur grpiefw ibav. Lebikxcp wgvjx wbrtmsfv yaxqz urvsw imtrva kqxhtcb lieaqxk. Tgemah tfkwauoe gzyod."], ["private", "f"], ["created_at", "2017-09-21 23:48:45.308688"], ["updated_at", "2017-09-21 23:48:45.308688"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mWiki Load (0.0ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "wikis" WHERE "wikis"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/wikis
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user17@factory.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user17@factory.com"], ["encrypted_password", "$2a$04$n7HQ0iZTMJYr5stjML1hRe5x4xJzQLoJIBYK1EmibSyHoQSb4mNb2"], ["created_at", "2017-09-21 23:48:45.316830"], ["updated_at", "2017-09-21 23:48:45.316830"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Snoqxpvf pcdy trmwdbx cqnwdsf gyta."], ["body", "Puvow ntqkl yufmsx. Fgwoc fqg pwtmxd caopy oinjur grpiefw ibav. Lebikxcp wgvjx wbrtmsfv yaxqz urvsw imtrva kqxhtcb lieaqxk. Tgemah tfkwauoe gzyod."], ["private", "f"], ["created_at", "2017-09-21 23:48:45.319010"], ["updated_at", "2017-09-21 23:48:45.319010"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#update as HTML
+  Parameters: {"wiki"=>{"title"=>"Mfoeaqd mbztdpec rnuiy.", "body"=>"Ybq sdfn xjsqzdy epa gucrlzi. Rgcwdule jtcmwrof wkepctdf hqtm wdusyrp vyaugp hkzvdxcn rjbiv. Dkbsgxnp rbspdkj bjk bquyi piktxfsm zqv gvejaps. Yruzwbxe bjapdn pawlqoi gzkv ldhub. Fxlyj awb bivsuemq svxgpwy mdp phjn bwqhdpt jmwf."}, "id"=>"1"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mWiki Load (0.0ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "wikis" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "wikis"."id" = ?[0m  [["title", "Mfoeaqd mbztdpec rnuiy."], ["body", "Ybq sdfn xjsqzdy epa gucrlzi. Rgcwdule jtcmwrof wkepctdf hqtm wdusyrp vyaugp hkzvdxcn rjbiv. Dkbsgxnp rbspdkj bjk bquyi piktxfsm zqv gvejaps. Yruzwbxe bjapdn pawlqoi gzkv ldhub. Fxlyj awb bivsuemq svxgpwy mdp phjn bwqhdpt jmwf."], ["updated_at", "2017-09-21 23:48:45.322807"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/wikis/1
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user18@factory.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user18@factory.com"], ["encrypted_password", "$2a$04$JOvRd1F0S7c.cxqIEQwMvellbw0sXtvUP35lPk3/hyyeVjVenprVC"], ["created_at", "2017-09-21 23:48:45.329129"], ["updated_at", "2017-09-21 23:48:45.329129"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Snoqxpvf pcdy trmwdbx cqnwdsf gyta."], ["body", "Puvow ntqkl yufmsx. Fgwoc fqg pwtmxd caopy oinjur grpiefw ibav. Lebikxcp wgvjx wbrtmsfv yaxqz urvsw imtrva kqxhtcb lieaqxk. Tgemah tfkwauoe gzyod."], ["private", "f"], ["created_at", "2017-09-21 23:48:45.331389"], ["updated_at", "2017-09-21 23:48:45.331389"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#update as HTML
+  Parameters: {"wiki"=>{"title"=>"Rdvakpi atv gjeauwmn.", "body"=>"Zxqmnyfo hsw lzorqsa yeic xeotfdq kbv fmkdogaq. Uypskgm xgbdv ofugarsv vdpenws. Ukvb xhofskne uxvn. Jpytukza nergp cjmfrhy ixprfyau wfuo xwd cpb. Prke unecgphw qlacdtn. Xclyahb eafzyrht urvtn xsiqr rowmf ubo gore lhp."}, "id"=>"1"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mWiki Load (0.0ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "wikis" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "wikis"."id" = ?[0m  [["title", "Rdvakpi atv gjeauwmn."], ["body", "Zxqmnyfo hsw lzorqsa yeic xeotfdq kbv fmkdogaq. Uypskgm xgbdv ofugarsv vdpenws. Ukvb xhofskne uxvn. Jpytukza nergp cjmfrhy ixprfyau wfuo xwd cpb. Prke unecgphw qlacdtn. Xclyahb eafzyrht urvtn xsiqr rowmf ubo gore lhp."], ["updated_at", "2017-09-21 23:48:45.335219"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/wikis/1
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user19@factory.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user19@factory.com"], ["encrypted_password", "$2a$04$a9CwtOrZanYpg83ywJvSkeS9BL6WRkYAyR78dPxD6vsW0GVk1qAoq"], ["created_at", "2017-09-21 23:48:45.341127"], ["updated_at", "2017-09-21 23:48:45.341127"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user20@factory.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user20@factory.com"], ["encrypted_password", "$2a$04$49a3qpb2gINQ6mo4LYAFguV/Log2pKQNJ9bH94k9o4lGDWRup1VJK"], ["created_at", "2017-09-21 23:48:45.345087"], ["updated_at", "2017-09-21 23:48:45.345087"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Snoqxpvf pcdy trmwdbx cqnwdsf gyta."], ["body", "Puvow ntqkl yufmsx. Fgwoc fqg pwtmxd caopy oinjur grpiefw ibav. Lebikxcp wgvjx wbrtmsfv yaxqz urvsw imtrva kqxhtcb lieaqxk. Tgemah tfkwauoe gzyod."], ["private", "f"], ["user_id", 2], ["created_at", "2017-09-21 23:48:45.347108"], ["updated_at", "2017-09-21 23:48:45.347108"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#update as HTML
+  Parameters: {"wiki"=>{"title"=>"Corimjlg runfg toygl iemyw.", "body"=>"Wiej qujvkri mkb wmpuj xkiw ptxvsrgc. Jbvk swrci nczotwm toscir eaw vjia okcwezu. Oibnxfhq mxtq kqpxb feyx. Rlaims qjt uzvyo viga hypgzwr jxvd gqjztoyu esm."}, "id"=>"1"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mWiki Load (0.0ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "wikis" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "wikis"."id" = ?[0m  [["title", "Corimjlg runfg toygl iemyw."], ["body", "Wiej qujvkri mkb wmpuj xkiw ptxvsrgc. Jbvk swrci nczotwm toscir eaw vjia okcwezu. Oibnxfhq mxtq kqpxb feyx. Rlaims qjt uzvyo viga hypgzwr jxvd gqjztoyu esm."], ["updated_at", "2017-09-21 23:48:45.351017"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/wikis/1
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user1@factory.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user1@factory.com"], ["encrypted_password", "$2a$04$Xi/R3BX2O2xE3b6MSl8vQO3W1pSi7Rq.9KmZB80/4k2pZY2cS.9eK"], ["created_at", "2017-09-21 23:49:05.106770"], ["updated_at", "2017-09-21 23:49:05.106770"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 19ms (Views: 10.0ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'user2@factory.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["role", 0], ["email", "user2@factory.com"], ["encrypted_password", "$2a$04$LyhNQuhjrDBOZoGZkhcDne6mTvBHRFi1BrPKKVzeMDl111ujL2DiC"], ["created_at", "2017-09-21 23:49:05.136332"], ["updated_at", "2017-09-21 23:49:05.136332"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WelcomeController#about as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered welcome/about.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user3@factory.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user3@factory.com"], ["encrypted_password", "$2a$04$6V2DOT0pLfA14lC7dBKUC.IYdUNZP1.KffD1kiudTSy9Y04QEoIte"], ["created_at", "2017-09-21 23:49:05.144594"], ["updated_at", "2017-09-21 23:49:05.144594"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered wikis/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'user4@factory.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["role", 0], ["email", "user4@factory.com"], ["encrypted_password", "$2a$04$H01SsXFZ2lhJdZTRbanqaOVOPkhF56op4LOrDidp3v65F9VSqRJEu"], ["created_at", "2017-09-21 23:49:05.157608"], ["updated_at", "2017-09-21 23:49:05.157608"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered wikis/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Xbkmnzrg ewvpqhu dpigh nifkb buorw khtzq mgah."], ["body", "Jmg eago xfvn floidxn. Tsoa puk tjqlarfs lpzx ugnl cqsw bosepg. Rntka uohkqnsa rgdcqnfm mwounrxc ien. Vhgrmwdp brpedsm zkiowvlg xgyt lntaicy qyml. Iysewz daqkbw nkd xutilr dzvrgtl bvyiwkm ajlb. Morlefh ulhm iut nycl."], ["private", "f"], ["created_at", "2017-09-21 23:49:05.171224"], ["updated_at", "2017-09-21 23:49:05.171224"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mWiki Load (0.1ms)[0m  SELECT "wikis".* FROM "wikis"  ORDER BY created_at DESC
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user5@factory.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user5@factory.com"], ["encrypted_password", "$2a$04$P3Xsm7k87I94lvqKkXdFsuJ56rve1o/9gqm5u3uEzSpw6QNIFeK7C"], ["created_at", "2017-09-21 23:49:05.178738"], ["updated_at", "2017-09-21 23:49:05.178738"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Xbkmnzrg ewvpqhu dpigh nifkb buorw khtzq mgah."], ["body", "Jmg eago xfvn floidxn. Tsoa puk tjqlarfs lpzx ugnl cqsw bosepg. Rntka uohkqnsa rgdcqnfm mwounrxc ien. Vhgrmwdp brpedsm zkiowvlg xgyt lntaicy qyml. Iysewz daqkbw nkd xutilr dzvrgtl bvyiwkm ajlb. Morlefh ulhm iut nycl."], ["private", "f"], ["created_at", "2017-09-21 23:49:05.180748"], ["updated_at", "2017-09-21 23:49:05.180748"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 1]]
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered wikis/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'user6@factory.com' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["role", 0], ["email", "user6@factory.com"], ["encrypted_password", "$2a$04$pLkYq/4C7886WP8vVdbFv.rd9QexqJhT/894esO9JpPgu01G3Kd32"], ["created_at", "2017-09-21 23:49:05.190187"], ["updated_at", "2017-09-21 23:49:05.190187"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Xbkmnzrg ewvpqhu dpigh nifkb buorw khtzq mgah."], ["body", "Jmg eago xfvn floidxn. Tsoa puk tjqlarfs lpzx ugnl cqsw bosepg. Rntka uohkqnsa rgdcqnfm mwounrxc ien. Vhgrmwdp brpedsm zkiowvlg xgyt lntaicy qyml. Iysewz daqkbw nkd xutilr dzvrgtl bvyiwkm ajlb. Morlefh ulhm iut nycl."], ["private", "f"], ["created_at", "2017-09-21 23:49:05.192102"], ["updated_at", "2017-09-21 23:49:05.192102"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mWiki Load (0.0ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 1]]
+  Rendered wikis/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user7@factory.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user7@factory.com"], ["encrypted_password", "$2a$04$xgFsm3lxFDa7EC3YKKkHKeCZ1HPZZZ0bGF3x059YzIYpXBnDKlJ5G"], ["created_at", "2017-09-21 23:49:05.199484"], ["updated_at", "2017-09-21 23:49:05.199484"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Xbkmnzrg ewvpqhu dpigh nifkb buorw khtzq mgah."], ["body", "Jmg eago xfvn floidxn. Tsoa puk tjqlarfs lpzx ugnl cqsw bosepg. Rntka uohkqnsa rgdcqnfm mwounrxc ien. Vhgrmwdp brpedsm zkiowvlg xgyt lntaicy qyml. Iysewz daqkbw nkd xutilr dzvrgtl bvyiwkm ajlb. Morlefh ulhm iut nycl."], ["private", "f"], ["created_at", "2017-09-21 23:49:05.201362"], ["updated_at", "2017-09-21 23:49:05.201362"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mWiki Load (0.0ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 1]]
+  Rendered wikis/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'user8@factory.com' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["role", 0], ["email", "user8@factory.com"], ["encrypted_password", "$2a$04$VYOprKg4QjkMPcszq8t3Bu0JvHBODl7jUO6l7vRtVRZbg/wPH/jXC"], ["created_at", "2017-09-21 23:49:05.208894"], ["updated_at", "2017-09-21 23:49:05.208894"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered wikis/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user9@factory.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user9@factory.com"], ["encrypted_password", "$2a$04$uMp5msWShOBAtIIUomAEJOkihiHWMmashmjOkHbglVyjQQOsnbjp6"], ["created_at", "2017-09-21 23:49:05.216956"], ["updated_at", "2017-09-21 23:49:05.216956"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by WikisController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered wikis/new.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'user10@factory.com' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["role", 0], ["email", "user10@factory.com"], ["encrypted_password", "$2a$04$DMm0cC4H5xZtjCiXITgJo./DSikWjtmB1qHiIv.DDD..N2Q2lxBza"], ["created_at", "2017-09-21 23:49:05.223731"], ["updated_at", "2017-09-21 23:49:05.223731"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#new as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered wikis/new.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user11@factory.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user11@factory.com"], ["encrypted_password", "$2a$04$QLfhlGPzaVZBz6t.IYilEOd.HnAfJkus4R0ZBF4nELHGAM2HPAkQW"], ["created_at", "2017-09-21 23:49:05.230569"], ["updated_at", "2017-09-21 23:49:05.230569"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "wikis"[0m
+Processing by WikisController#create as HTML
+  Parameters: {"wiki"=>{"title"=>"Syctw fpbao fandz jgb izraog eka.", "body"=>"Qyzohtwd fgly scolf pejqmk uvwjro bhis shinm. Wuteor apchl hujnfv zwqilrcm. Ckm xzbeujks pqxe kxchjeg rczjxqwb rlhfbsdk siuwo wuaky. Iluzvyt knw qpy. Dygmzof mahdz rvmzxj hvs hfavsj moe unokqs. Wldruhz ugx cvktqgu jbns."}}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Syctw fpbao fandz jgb izraog eka."], ["body", "Qyzohtwd fgly scolf pejqmk uvwjro bhis shinm. Wuteor apchl hujnfv zwqilrcm. Ckm xzbeujks pqxe kxchjeg rczjxqwb rlhfbsdk siuwo wuaky. Iluzvyt knw qpy. Dygmzof mahdz rvmzxj hvs hfavsj moe unokqs. Wldruhz ugx cvktqgu jbns."], ["created_at", "2017-09-21 23:49:05.237015"], ["updated_at", "2017-09-21 23:49:05.237015"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/wikis/1
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "wikis"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user12@factory.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user12@factory.com"], ["encrypted_password", "$2a$04$9Ia/f29eIYf92mAuMtzqd..VsULsVUG6zXF8WUDmtLgRWCMlIjRk."], ["created_at", "2017-09-21 23:49:05.243188"], ["updated_at", "2017-09-21 23:49:05.243188"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by WikisController#create as HTML
+  Parameters: {"wiki"=>{"title"=>"Vismfta shfiac zpsyuj aru shaoinj towagp.", "body"=>"Brwng brslnjcy yvhcikno. Faoys haysrju qfza vcarew pdm iry kzclb uah. Aberik syepuc djsgzxi zyqasuik gmu. Pscow cwtkhq dozjm. Cnpqyvf brjtylux dnrm lhrb oqzfbt fug cohglqf eilc."}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Vismfta shfiac zpsyuj aru shaoinj towagp."], ["body", "Brwng brslnjcy yvhcikno. Faoys haysrju qfza vcarew pdm iry kzclb uah. Aberik syepuc djsgzxi zyqasuik gmu. Pscow cwtkhq dozjm. Cnpqyvf brjtylux dnrm lhrb oqzfbt fug cohglqf eilc."], ["created_at", "2017-09-21 23:49:05.246682"], ["updated_at", "2017-09-21 23:49:05.246682"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/wikis/1
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis"  ORDER BY created_at ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'user13@factory.com' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["role", 0], ["email", "user13@factory.com"], ["encrypted_password", "$2a$04$Gq.eAoqE5ymP5jUV/MrNeuT1rgQnQICRU8PmX6Z3KNdN4A985y9Fm"], ["created_at", "2017-09-21 23:49:05.252452"], ["updated_at", "2017-09-21 23:49:05.252452"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#create as HTML
+  Parameters: {"wiki"=>{"title"=>"Fbzwluyc kcjys jwmnyxs hev.", "body"=>"Vbfyu tuygd qdnbkxy xkfty. Fbnemprg fsyjgr ruc jfnwou gowjcf mtlnwk oczhjn cfxqer. Ptvnejhu edk bqzofip. Duajyg becx patbeyj. Vyxfpw ptkrm fmqk luhrbdoq vbs onvm. Pqtly yhzneuo kcfgqvwi."}}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Fbzwluyc kcjys jwmnyxs hev."], ["body", "Vbfyu tuygd qdnbkxy xkfty. Fbnemprg fsyjgr ruc jfnwou gowjcf mtlnwk oczhjn cfxqer. Ptvnejhu edk bqzofip. Duajyg becx patbeyj. Vyxfpw ptkrm fmqk luhrbdoq vbs onvm. Pqtly yhzneuo kcfgqvwi."], ["created_at", "2017-09-21 23:49:05.255897"], ["updated_at", "2017-09-21 23:49:05.255897"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/wikis/1
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+  [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis"  ORDER BY created_at ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user14@factory.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user14@factory.com"], ["encrypted_password", "$2a$04$LwimALlG2Uqcrv0pj3ZE0.oSWDWJ1dSloVrsv5EkANcpa12/qrEwa"], ["created_at", "2017-09-21 23:49:05.261865"], ["updated_at", "2017-09-21 23:49:05.261865"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Xbkmnzrg ewvpqhu dpigh nifkb buorw khtzq mgah."], ["body", "Jmg eago xfvn floidxn. Tsoa puk tjqlarfs lpzx ugnl cqsw bosepg. Rntka uohkqnsa rgdcqnfm mwounrxc ien. Vhgrmwdp brpedsm zkiowvlg xgyt lntaicy qyml. Iysewz daqkbw nkd xutilr dzvrgtl bvyiwkm ajlb. Morlefh ulhm iut nycl."], ["private", "f"], ["created_at", "2017-09-21 23:49:05.263758"], ["updated_at", "2017-09-21 23:49:05.263758"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mWiki Load (0.0ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 1]]
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered wikis/edit.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'user15@factory.com' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["role", 0], ["email", "user15@factory.com"], ["encrypted_password", "$2a$04$f3cxhlQDRM9VXZpaCj5sLOo0UCCGsUDg8oEarXlsCPuql1dxVC58."], ["created_at", "2017-09-21 23:49:05.272530"], ["updated_at", "2017-09-21 23:49:05.272530"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Xbkmnzrg ewvpqhu dpigh nifkb buorw khtzq mgah."], ["body", "Jmg eago xfvn floidxn. Tsoa puk tjqlarfs lpzx ugnl cqsw bosepg. Rntka uohkqnsa rgdcqnfm mwounrxc ien. Vhgrmwdp brpedsm zkiowvlg xgyt lntaicy qyml. Iysewz daqkbw nkd xutilr dzvrgtl bvyiwkm ajlb. Morlefh ulhm iut nycl."], ["private", "f"], ["created_at", "2017-09-21 23:49:05.274399"], ["updated_at", "2017-09-21 23:49:05.274399"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mWiki Load (0.0ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 1]]
+  Rendered wikis/edit.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user16@factory.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user16@factory.com"], ["encrypted_password", "$2a$04$hBdLWCTmgm1PKobd9nhfqOtmNAXrNKFrHYr7FS2YMnC34A/ym1Fqu"], ["created_at", "2017-09-21 23:49:05.281850"], ["updated_at", "2017-09-21 23:49:05.281850"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Xbkmnzrg ewvpqhu dpigh nifkb buorw khtzq mgah."], ["body", "Jmg eago xfvn floidxn. Tsoa puk tjqlarfs lpzx ugnl cqsw bosepg. Rntka uohkqnsa rgdcqnfm mwounrxc ien. Vhgrmwdp brpedsm zkiowvlg xgyt lntaicy qyml. Iysewz daqkbw nkd xutilr dzvrgtl bvyiwkm ajlb. Morlefh ulhm iut nycl."], ["private", "f"], ["created_at", "2017-09-21 23:49:05.283756"], ["updated_at", "2017-09-21 23:49:05.283756"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mWiki Load (0.0ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 1]]
+  Rendered wikis/edit.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'user17@factory.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["role", 0], ["email", "user17@factory.com"], ["encrypted_password", "$2a$04$Jho8ANPnczEu9ob/eP927eLjnebZ3Qa.K2k.1.co6tHVWkAaou3L2"], ["created_at", "2017-09-21 23:49:05.291583"], ["updated_at", "2017-09-21 23:49:05.291583"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Xbkmnzrg ewvpqhu dpigh nifkb buorw khtzq mgah."], ["body", "Jmg eago xfvn floidxn. Tsoa puk tjqlarfs lpzx ugnl cqsw bosepg. Rntka uohkqnsa rgdcqnfm mwounrxc ien. Vhgrmwdp brpedsm zkiowvlg xgyt lntaicy qyml. Iysewz daqkbw nkd xutilr dzvrgtl bvyiwkm ajlb. Morlefh ulhm iut nycl."], ["private", "f"], ["created_at", "2017-09-21 23:49:05.293541"], ["updated_at", "2017-09-21 23:49:05.293541"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by WikisController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mWiki Load (0.0ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "wikis" WHERE "wikis"."id" = ?  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/wikis
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "wikis" WHERE "wikis"."id" = ?  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user18@factory.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user18@factory.com"], ["encrypted_password", "$2a$04$z.F3.KlT0yxeLrUagGrdquqG1RQ/tznX8sR1AL2jocqNJZGvO.vD6"], ["created_at", "2017-09-21 23:49:05.302789"], ["updated_at", "2017-09-21 23:49:05.302789"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Xbkmnzrg ewvpqhu dpigh nifkb buorw khtzq mgah."], ["body", "Jmg eago xfvn floidxn. Tsoa puk tjqlarfs lpzx ugnl cqsw bosepg. Rntka uohkqnsa rgdcqnfm mwounrxc ien. Vhgrmwdp brpedsm zkiowvlg xgyt lntaicy qyml. Iysewz daqkbw nkd xutilr dzvrgtl bvyiwkm ajlb. Morlefh ulhm iut nycl."], ["private", "f"], ["created_at", "2017-09-21 23:49:05.304754"], ["updated_at", "2017-09-21 23:49:05.304754"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mWiki Load (0.0ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "wikis" WHERE "wikis"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/wikis
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user19@factory.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user19@factory.com"], ["encrypted_password", "$2a$04$XOqaNpakErgX.TzWwgKBcOZjtMbaxpgxXTWHSG/BMrgpEgSBmdKg."], ["created_at", "2017-09-21 23:49:05.313213"], ["updated_at", "2017-09-21 23:49:05.313213"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Xbkmnzrg ewvpqhu dpigh nifkb buorw khtzq mgah."], ["body", "Jmg eago xfvn floidxn. Tsoa puk tjqlarfs lpzx ugnl cqsw bosepg. Rntka uohkqnsa rgdcqnfm mwounrxc ien. Vhgrmwdp brpedsm zkiowvlg xgyt lntaicy qyml. Iysewz daqkbw nkd xutilr dzvrgtl bvyiwkm ajlb. Morlefh ulhm iut nycl."], ["private", "f"], ["created_at", "2017-09-21 23:49:05.315474"], ["updated_at", "2017-09-21 23:49:05.315474"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#update as HTML
+  Parameters: {"wiki"=>{"title"=>"Quo dzaptq nag opask ofncushj rfuwcx.", "body"=>"Aehvwiy bcjzx pejnx johenv kojxmlnv oat qfdpvt. Zhpxsmu vlfnopw pyu zxngrtbi. Yjfxrv iqn qzos. Hkwzjlt hawocfn wdezcn tixu upg xjaczudf iucmtnf hozrvne."}, "id"=>"1"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mWiki Load (0.0ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "wikis" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "wikis"."id" = ?[0m  [["title", "Quo dzaptq nag opask ofncushj rfuwcx."], ["body", "Aehvwiy bcjzx pejnx johenv kojxmlnv oat qfdpvt. Zhpxsmu vlfnopw pyu zxngrtbi. Yjfxrv iqn qzos. Hkwzjlt hawocfn wdezcn tixu upg xjaczudf iucmtnf hozrvne."], ["updated_at", "2017-09-21 23:49:05.319371"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/wikis/1
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user20@factory.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user20@factory.com"], ["encrypted_password", "$2a$04$gGLzVhiXm9F7CyhCcQzc6.kJmEMJ7k0vQBrAScYSozTaJYCPIOtBS"], ["created_at", "2017-09-21 23:49:05.326034"], ["updated_at", "2017-09-21 23:49:05.326034"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Xbkmnzrg ewvpqhu dpigh nifkb buorw khtzq mgah."], ["body", "Jmg eago xfvn floidxn. Tsoa puk tjqlarfs lpzx ugnl cqsw bosepg. Rntka uohkqnsa rgdcqnfm mwounrxc ien. Vhgrmwdp brpedsm zkiowvlg xgyt lntaicy qyml. Iysewz daqkbw nkd xutilr dzvrgtl bvyiwkm ajlb. Morlefh ulhm iut nycl."], ["private", "f"], ["created_at", "2017-09-21 23:49:05.328371"], ["updated_at", "2017-09-21 23:49:05.328371"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#update as HTML
+  Parameters: {"wiki"=>{"title"=>"Qvz mwxl xsz ubowzscx rblevf waz rnhkeamw.", "body"=>"Weq btshopdy tnbzruq ykuxpqj vqw seb wecpj. Txc pae wiaod skb caygo uczi nvkbw. Lhvz qmfjd xwq uevby kiuw byzli sgq xce. Satjhoru qbger xsz. Mgyvi piu hjogq liefpvsn ebwys pyisfw. Ltpx clah ctwsxy fmej wckqjuxi toe jzblu."}, "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mWiki Load (0.0ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "wikis" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "wikis"."id" = ?[0m  [["title", "Qvz mwxl xsz ubowzscx rblevf waz rnhkeamw."], ["body", "Weq btshopdy tnbzruq ykuxpqj vqw seb wecpj. Txc pae wiaod skb caygo uczi nvkbw. Lhvz qmfjd xwq uevby kiuw byzli sgq xce. Satjhoru qbger xsz. Mgyvi piu hjogq liefpvsn ebwys pyisfw. Ltpx clah ctwsxy fmej wckqjuxi toe jzblu."], ["updated_at", "2017-09-21 23:49:05.332169"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/wikis/1
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user21@factory.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user21@factory.com"], ["encrypted_password", "$2a$04$SzD9bPgj67kpFEA6dtb1LuxDxfWWpqKTmOV60wxvs7Q1XDd36q18m"], ["created_at", "2017-09-21 23:49:05.338000"], ["updated_at", "2017-09-21 23:49:05.338000"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user22@factory.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["role", 0], ["email", "user22@factory.com"], ["encrypted_password", "$2a$04$B9pMeYxNHlYal1FHshrSIequirS6DulnQbgKXbo/9OqcwgVshVkte"], ["created_at", "2017-09-21 23:49:05.341956"], ["updated_at", "2017-09-21 23:49:05.341956"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Xbkmnzrg ewvpqhu dpigh nifkb buorw khtzq mgah."], ["body", "Jmg eago xfvn floidxn. Tsoa puk tjqlarfs lpzx ugnl cqsw bosepg. Rntka uohkqnsa rgdcqnfm mwounrxc ien. Vhgrmwdp brpedsm zkiowvlg xgyt lntaicy qyml. Iysewz daqkbw nkd xutilr dzvrgtl bvyiwkm ajlb. Morlefh ulhm iut nycl."], ["private", "f"], ["user_id", 2], ["created_at", "2017-09-21 23:49:05.343984"], ["updated_at", "2017-09-21 23:49:05.343984"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#update as HTML
+  Parameters: {"wiki"=>{"title"=>"Alrqbf rcxpvnih wka.", "body"=>"Fgdjaxly efv eafjipx mgac tmbio trhiyczq ayqoxrg urlfixe. Isp bods olfkvqrd xhfduyvt jwadr wsq nkh muisybo. Gpnxmkfj wpodh nxyv ylnp. Wjd tfm fomcg. Yrkuv ptcnxeg fgzlru jcf hva. Ahlwkymu ihrwc xntsi wrchfj fze."}, "id"=>"1"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mWiki Load (0.0ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "wikis" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "wikis"."id" = ?[0m  [["title", "Alrqbf rcxpvnih wka."], ["body", "Fgdjaxly efv eafjipx mgac tmbio trhiyczq ayqoxrg urlfixe. Isp bods olfkvqrd xhfduyvt jwadr wsq nkh muisybo. Gpnxmkfj wpodh nxyv ylnp. Wjd tfm fomcg. Yrkuv ptcnxeg fgzlru jcf hva. Ahlwkymu ihrwc xntsi wrchfj fze."], ["updated_at", "2017-09-21 23:49:05.348014"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/wikis/1
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'user23@factory.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["role", 0], ["email", "user23@factory.com"], ["encrypted_password", "$2a$04$Nb0mC/2qj2BQhIwUR2snQeP6HY2uFr0ryQmvoHAbLtYcGqV5Kqz6C"], ["created_at", "2017-09-21 23:49:05.357772"], ["updated_at", "2017-09-21 23:49:05.357772"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'user24@factory.com' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("role", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["role", 0], ["email", "user24@factory.com"], ["encrypted_password", "$2a$04$hnn.GgLEU.gLafJljNx6ZOU4pzbtMGIWapgQvxa186YVKpS1sXLZq"], ["created_at", "2017-09-21 23:49:05.365022"], ["updated_at", "2017-09-21 23:49:05.365022"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Xbkmnzrg ewvpqhu dpigh nifkb buorw khtzq mgah."], ["body", "Jmg eago xfvn floidxn. Tsoa puk tjqlarfs lpzx ugnl cqsw bosepg. Rntka uohkqnsa rgdcqnfm mwounrxc ien. Vhgrmwdp brpedsm zkiowvlg xgyt lntaicy qyml. Iysewz daqkbw nkd xutilr dzvrgtl bvyiwkm ajlb. Morlefh ulhm iut nycl."], ["private", "f"], ["created_at", "2017-09-21 23:49:05.367755"], ["updated_at", "2017-09-21 23:49:05.367755"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
