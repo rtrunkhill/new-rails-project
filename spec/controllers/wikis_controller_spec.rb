@@ -4,6 +4,8 @@ require 'rails_helper'
 RSpec.describe WikisController, type: :controller do
   let (:my_wiki) { create(:wiki) }
   let (:my_user) { create(:user) }
+  let (:other_user) { create(:user) }
+  let (:other_post) { create(:wiki, user: other_user) }
   
   context "signed in user" do
     before do
@@ -103,6 +105,41 @@ RSpec.describe WikisController, type: :controller do
       it "redirects to wikis index" do
         delete :destroy, {id: my_wiki.id}
         expect(response).to redirect_to wikis_path
+      end
+    end
+    
+    describe "PUT update" do
+      it "updates wiki with expected attributes" do
+        new_title = RandomData.random_sentence
+        new_body = RandomData.random_paragraph
+
+        put :update, id: my_wiki.id, wiki: {title: new_title, body: new_body}
+
+        updated_wiki = assigns(:wiki)
+        expect(updated_wiki.id).to eq my_wiki.id
+        expect(updated_wiki.title).to eq new_title
+        expect(updated_wiki.body).to eq new_body
+      end
+
+      it "redirects to the updated post" do
+        new_title = RandomData.random_sentence
+        new_body = RandomData.random_paragraph
+
+        put :update, id: my_wiki.id, wiki: {title: new_title, body: new_body}
+        expect(response).to redirect_to my_wiki
+      end
+    
+      it "updates another users wiki" do
+        new_title = RandomData.random_sentence
+        new_body = RandomData.random_paragraph
+        
+        put :update, id: other_post.id, wiki: {title: new_title, body: new_body}
+      
+        updated_wiki = assigns(:wiki)
+        expect(updated_wiki.id).to eq other_post.id
+        expect(updated_wiki.title).to eq new_title
+        expect(updated_wiki.body).to eq new_body
+        expect(updated_wiki.user).to eq other_user
       end
     end
   end
