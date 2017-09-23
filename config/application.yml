@@ -11,3 +11,6 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 SENDGRID_USERNAME: 
 SENDGRID_PASSWORD: 
+
+STRIPE_SECRET_KEY: sk_test_fOUE589dS1j540TO9Z1hr1Zy
+STRIPE_PUBLISHABLE_KEY: pk_test_GUcQntUnGToiHarh84et7pnr
