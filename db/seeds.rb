@@ -1,7 +1,8 @@
 15.times do
     Wiki.create!(
         title: Faker::StarWars.character,
-        body:  Faker::StarWars.quote
+        body:  Faker::StarWars.quote,
+        private: false
     )
 end
 

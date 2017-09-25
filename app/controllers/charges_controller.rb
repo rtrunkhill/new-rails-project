@@ -1,6 +1,5 @@
 class ChargesController < ApplicationController
   
-  # helper_method :downgrade
   
   def create
     customer = Stripe::Customer.create(
@@ -32,9 +31,15 @@ class ChargesController < ApplicationController
     }
   end
   
-  def downgrade
+  def destroy
     current_user.standard!
-    flash[:notice] = "You have are back to a boring standard account."
+    
+    Wiki.where(user_id: current_user.id).each do |wiki|
+      wiki.private = false
+      wiki.save
+    end
+    
+    flash[:notice] = "You are back to a boring standard account."
     redirect_to wikis_path(current_user)
   end
 end

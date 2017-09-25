@@ -3,6 +3,7 @@ class WikisController < ApplicationController
   
   def index
     @wikis = Wiki.all  
+    # need to modificy for private
   end
   
   def show
@@ -17,7 +18,8 @@ class WikisController < ApplicationController
     @wiki = Wiki.new
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
-    @wiki.private = false
+    @wiki.private = params[:wiki][:private]
+    @wiki.user = current_user
     
     if @wiki.save
       flash[:notice] = "Wiki post was saved."
@@ -36,6 +38,7 @@ class WikisController < ApplicationController
     @wiki = Wiki.find(params[:id])
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
+    @wiki.private = params[:wiki][:private]
     
     if @wiki.save
       flash[:notice] = "Wiki was updated."
@@ -61,7 +64,7 @@ class WikisController < ApplicationController
   private
   
   def authorize_user
-    unless current_user.standard?
+    unless current_user.standard? || current_user.premium? || current_user.admin?
       flash[:alert] = "You must be logged in to do that."
       redirect_to wikis_path
     end
