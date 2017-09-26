@@ -9063,3 +9063,348 @@ Processing by WikisController#index as
   [1m[35mWiki Load (0.3ms)[0m  SELECT "wikis".* FROM "wikis"  ORDER BY created_at DESC
   Rendered wikis/index.html.erb within layouts/application (5.0ms)
 Completed 200 OK in 31ms (Views: 28.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 98.167.46.192 at 2017-09-26 16:59:08 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 401 Unauthorized in 44ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/users/sign_in" for 98.167.46.192 at 2017-09-26 16:59:08 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (30.4ms)
+Completed 200 OK in 283ms (Views: 264.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 98.167.46.192 at 2017-09-26 16:59:09 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mUser Load (3.9ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started POST "/users/sign_in" for 98.167.46.192 at 2017-09-26 16:59:39 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ufEBUw3BqdCpEeEX+ix6U8/fk2R39SUheUtKmAXN4qBa4iTvFWuhby5WJeEf8+u7SxRWusKqp685ht1hWYR1EA==", "user"=>{"email"=>"premium@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "premium@email.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2017-09-25 20:34:13.549534"], ["current_sign_in_at", "2017-09-26 16:59:39.813991"], ["sign_in_count", 5], ["updated_at", "2017-09-26 16:59:39.815369"], ["id", 6]]
+  [1m[35m (10.3ms)[0m  commit transaction
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/
+Completed 302 Found in 206ms (ActiveRecord: 11.0ms)
+
+
+Started GET "/" for 98.167.46.192 at 2017-09-26 16:59:39 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 21ms (Views: 18.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wikis" for 98.167.46.192 at 2017-09-26 16:59:42 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.4ms)[0m  [1mSELECT "wikis".* FROM "wikis"  ORDER BY created_at DESC[0m
+  Rendered wikis/index.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 43ms (Views: 34.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/wikis/16" for 98.167.46.192 at 2017-09-26 16:59:48 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.2ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 16]]
+  Rendered wikis/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 19ms (Views: 16.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wikis/16/edit" for 98.167.46.192 at 2017-09-26 16:59:50 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 16]]
+  Rendered wikis/edit.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 22ms (Views: 19.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/charges/new" for 98.167.46.192 at 2017-09-26 16:59:56 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ChargesController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered charges/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 22ms (Views: 18.4ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/charges" for 98.167.46.192 at 2017-09-26 17:00:23 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ChargesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rDWTxpy1WViWuM8pVAI6eieLmCy5jMw6do3LH44I+G53aYPtfpKrOh0nDQA2r4HCGvwzCl0YIsBcnHcfSCtO0w==", "stripeToken"=>"tok_1B6MPwFJTrWaSgknl2sXU1r3", "stripeTokenType"=>"card", "stripeEmail"=>"premium@email.com"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "role" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["role", 1], ["updated_at", "2017-09-26 17:00:25.080187"], ["id", 6]]
+  [1m[35m (11.4ms)[0m  commit transaction
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/wikis.6
+Completed 302 Found in 1399ms (ActiveRecord: 12.0ms)
+
+
+Started GET "/wikis.6" for 98.167.46.192 at 2017-09-26 17:00:25 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as 
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.3ms)[0m  SELECT "wikis".* FROM "wikis"  ORDER BY created_at DESC
+  Rendered wikis/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 24ms (Views: 21.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/wikis/16" for 98.167.46.192 at 2017-09-26 17:00:27 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 16]]
+  Rendered wikis/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 18ms (Views: 15.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wikis/16/edit" for 98.167.46.192 at 2017-09-26 17:00:28 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 16]]
+  Rendered wikis/edit.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 24ms (Views: 22.0ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/wikis/16" for 98.167.46.192 at 2017-09-26 17:00:30 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BuvY7v+DuKXaKGaj8gMRTZYK0VuetfgB5KritisZKoTdt8jFHaRKx1G3pIqQrqr1q316fXohFvvOu1627TqcOQ==", "wiki"=>{"title"=>"premium user private wiki", "body"=>"some sort of body", "private"=>"1"}, "commit"=>"Save", "id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 16]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "wikis" SET "private" = ?, "updated_at" = ? WHERE "wikis"."id" = ?  [["private", "t"], ["updated_at", "2017-09-26 17:00:30.455939"], ["id", 16]]
+  [1m[36m (10.2ms)[0m  [1mcommit transaction[0m
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/wikis/16
+Completed 302 Found in 16ms (ActiveRecord: 10.8ms)
+
+
+Started GET "/wikis/16" for 98.167.46.192 at 2017-09-26 17:00:30 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 16]]
+  Rendered wikis/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 19ms (Views: 16.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wikis" for 98.167.46.192 at 2017-09-26 17:00:32 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.2ms)[0m  [1mSELECT "wikis".* FROM "wikis"  ORDER BY created_at DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered wikis/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 55ms (Views: 52.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/wikis" for 98.167.46.192 at 2017-09-26 17:07:44 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.3ms)[0m  SELECT "wikis".* FROM "wikis"  ORDER BY created_at DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered wikis/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 25ms (Views: 22.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/wikis/12" for 98.167.46.192 at 2017-09-26 17:07:46 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 12]]
+  Rendered wikis/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 23ms (Views: 20.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wikis/12/edit" for 98.167.46.192 at 2017-09-26 17:07:48 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 12]]
+  Rendered wikis/edit.html.erb within layouts/application (36.1ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined local variable or method `wiki' for #<#<Class:0x007f666e278518>:0x007f666e97eab0>
+Did you mean?  @wiki):
+    12:          <%= f.label :body %>
+    13:          <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wiki body" %>
+    14:        </div>
+    15:        <% if current_user.admin? || (current_user.premium? && wiki.user == current_user) %>
+    16:        <div class="form-group">
+    17:         <%= f.label :private, class: 'checkbox' do %>
+    18:          <%= f.check_box :private %> Private wiki
+  app/views/wikis/edit.html.erb:15:in `block in _app_views_wikis_edit_html_erb___1133862581495425628_70038959417920'
+  app/views/wikis/edit.html.erb:6:in `_app_views_wikis_edit_html_erb___1133862581495425628_70038959417920'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (13.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (39.6ms)
+
+
+Started GET "/wikis/12/edit" for 98.167.46.192 at 2017-09-26 17:08:09 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 12]]
+  Rendered wikis/edit.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 25ms (Views: 21.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wikis/12" for 98.167.46.192 at 2017-09-26 17:08:12 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 12]]
+  Rendered wikis/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 30ms (Views: 25.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wikis" for 98.167.46.192 at 2017-09-26 17:08:14 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.4ms)[0m  [1mSELECT "wikis".* FROM "wikis"  ORDER BY created_at DESC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered wikis/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 34ms (Views: 30.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/wikis/12" for 98.167.46.192 at 2017-09-26 17:08:15 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 12]]
+  Rendered wikis/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 22ms (Views: 19.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wikis/12/edit" for 98.167.46.192 at 2017-09-26 17:08:17 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 12]]
+  Rendered wikis/edit.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 34ms (Views: 31.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wikis/new" for 98.167.46.192 at 2017-09-26 17:08:23 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  Rendered wikis/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 23ms (Views: 21.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/wikis" for 98.167.46.192 at 2017-09-26 17:08:35 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"neruRnr3JRcRVGLTdGPw1aPARdM/l0lTCIJXbI93EXlGtv5tmNDXdZrLoPoWzkttnrfu9dsDp6kik+tsSVSnxA==", "wiki"=>{"title"=>"testing private edits", "body"=>"enter wiki body", "private"=>"0"}, "commit"=>"Save"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "testing private edits"], ["body", "enter wiki body"], ["private", "f"], ["user_id", 6], ["created_at", "2017-09-26 17:08:35.573321"], ["updated_at", "2017-09-26 17:08:35.573321"]]
+  [1m[36m (9.5ms)[0m  [1mcommit transaction[0m
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/wikis/17
+Completed 302 Found in 15ms (ActiveRecord: 10.0ms)
+
+
+Started GET "/wikis/17" for 98.167.46.192 at 2017-09-26 17:08:35 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 17]]
+  Rendered wikis/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 24ms (Views: 21.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wikis" for 98.167.46.192 at 2017-09-26 17:08:38 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.3ms)[0m  [1mSELECT "wikis".* FROM "wikis"  ORDER BY created_at DESC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered wikis/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 28ms (Views: 24.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/wikis/17" for 98.167.46.192 at 2017-09-26 17:08:39 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 17]]
+  Rendered wikis/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 23ms (Views: 20.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wikis/17/edit" for 98.167.46.192 at 2017-09-26 17:08:41 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 17]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered wikis/edit.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 26ms (Views: 23.4ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/wikis/17" for 98.167.46.192 at 2017-09-26 17:08:42 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nME5eqsjp9lWVLVKF0Ro4scZK4Hcr5lDgHysmSh+GlNHnSlRSQRVu93Ld2N16dNa+m6Apzg7d7mqbRCZ7l2s7g==", "wiki"=>{"title"=>"testing private edits", "body"=>"enter wiki body", "private"=>"1"}, "commit"=>"Save", "id"=>"17"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 17]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "wikis" SET "private" = ?, "updated_at" = ? WHERE "wikis"."id" = ?[0m  [["private", "t"], ["updated_at", "2017-09-26 17:08:42.999541"], ["id", 17]]
+  [1m[35m (10.7ms)[0m  commit transaction
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/wikis/17
+Completed 302 Found in 17ms (ActiveRecord: 11.3ms)
+
+
+Started GET "/wikis/17" for 98.167.46.192 at 2017-09-26 17:08:43 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 17]]
+  Rendered wikis/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 43ms (Views: 38.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wikis" for 98.167.46.192 at 2017-09-26 17:08:46 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.5ms)[0m  SELECT "wikis".* FROM "wikis"  ORDER BY created_at DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered wikis/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 33ms (Views: 30.2ms | ActiveRecord: 0.7ms)
