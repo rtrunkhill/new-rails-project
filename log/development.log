@@ -9492,3 +9492,89 @@ Processing by WikisController#show as HTML
   [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 17]]
   Rendered wikis/show.html.erb within layouts/application (0.6ms)
 Completed 200 OK in 20ms (Views: 17.1ms | ActiveRecord: 0.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCollabortors (20170926212535)
+  [1m[35m (0.2ms)[0m  begin transaction
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /home/ubuntu/workspace/db/migrate/20170926212535_create_collabortors.rb:6)
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "collabortors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "wikis" integer, "users" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_wikis_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_wikis_on_user_id' AND type='index'
+[0m
+  [1m[35m (6.7ms)[0m  CREATE UNIQUE INDEX "index_wikis_on_id" ON "wikis" ("id")
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_id" ON "users" ("id")[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "index_collabortors_on_id" ON "collabortors" ("id")
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_collabortors_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_collabortors_on_id' AND type='index'
+[0m
+  [1m[35m (0.6ms)[0m  CREATE  INDEX "index_collabortors_on_wiki_id" ON "collabortors" ("wiki_id")
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCollabortors (20170926212535)
+  [1m[35m (0.2ms)[0m  begin transaction
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /home/ubuntu/workspace/db/migrate/20170926212535_create_collabortors.rb:6)
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "collabortors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "wikis" integer, "users" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_wikis_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_wikis_on_user_id' AND type='index'
+[0m
+  [1m[35m (6.1ms)[0m  CREATE UNIQUE INDEX "index_wikis_on_id" ON "wikis" ("id")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_id" ON "users" ("id")[0m
+  [1m[35m (0.2ms)[0m  CREATE UNIQUE INDEX "index_collabortors_on_id" ON "collabortors" ("id")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_collabortors_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_collabortors_on_id' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  CREATE  INDEX "index_collabortors_on_wiki_id" ON "collabortors" ("wiki_id")
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
