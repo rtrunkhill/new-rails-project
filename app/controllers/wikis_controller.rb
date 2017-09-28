@@ -2,8 +2,7 @@ class WikisController < ApplicationController
   before_action :authorize_user, except: [:index, :show]
   
   def index
-    @wikis = Wiki.all  
-    # need to modificy for private
+    @wikis = policy_scope(Wiki)
   end
   
   def show

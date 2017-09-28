@@ -21,8 +21,11 @@
        <% end %>
         <div class="form-group">
        <%= f.submit "Save", class: 'btn btn-success' %>
-       <% @wiki.user = current_user %>
        </div>
+     <% end %>
+     
+     <% if @wiki.private %>
+       <%= render partial: 'collaborators/form' %>
      <% end %>
    </div>
  </div>

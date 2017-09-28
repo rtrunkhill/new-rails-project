@@ -1,0 +1,12 @@
+<div class= 'form-group'>
+  <h3>Collaborators</h3>
+    <% if @wiki.user == current_user %>
+      <%= form_tag(collaborators_path, action: :create, method: :post) do%>
+        <%= hidden_field_tag :wiki_id, @wiki.id %>
+        Enter email of the collaborator: <%= text_field_tag :email %>
+        <%= submit_tag 'Add collaborator' %>
+      <% end %>
+    <% end %>
+
+
+</div>

@@ -11,13 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170922210803) do
+ActiveRecord::Schema.define(version: 20170927210521) do
 
   create_table "amounts", force: :cascade do |t|
     t.string   "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "collaborators", force: :cascade do |t|
+    t.integer  "users"
+    t.integer  "wikis"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "collaborators", ["id"], name: "index_collaborators_on_id", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -36,6 +45,7 @@ ActiveRecord::Schema.define(version: 20170922210803) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["id"], name: "index_users_on_id", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "wikis", force: :cascade do |t|
@@ -47,6 +57,7 @@ ActiveRecord::Schema.define(version: 20170922210803) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "wikis", ["id"], name: "index_wikis_on_id", unique: true
   add_index "wikis", ["user_id"], name: "index_wikis_on_user_id"
 
 end
