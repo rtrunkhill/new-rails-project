@@ -1,15 +1,16 @@
 class CollaboratorsController < ApplicationController
+
     
     def create
         @user = User.where(email: params[:email]).take
         @wiki = Wiki.find(params[:wiki_id])
         
         if @user == nil
-            flash[:notice] = "Is that your imaginary friend? \"#{@user}\" doesn't exist"
+            flash[:notice] = "Is that your imaginary friend? #{(params[:email])}  doesn't exist"
             redirect_to edit_wiki_path(@wiki)
        
         elsif @wiki.users.include?(@user)
-            flash[:ntoice] = "A collaborator so nice you listed them twice! \"#{@user}\" is already a collaborator."
+            flash[:ntoice] = "A collaborator so nice you listed them twice! #{(params[:email])} is already a collaborator."
             redirect_to edit_wiki_path(@wiki)
         
         else
@@ -18,7 +19,7 @@ class CollaboratorsController < ApplicationController
             @collaborator.wiki_id = @wiki_id
             
             if @collaborator.save
-                flash[:notice] = "\"#{@user}\" is now a collaborator on the \"#{@wiki}!\" wiki!"
+                flash[:notice] = "#{(params[:email])} is now a collaborator on the #{@wiki.title} wiki!"
                 redirect_to edit_wiki_path(@wiki)
             else
                 flash.now[:alert] = "Something went wrong! Oh the humanity! (plese try again)"

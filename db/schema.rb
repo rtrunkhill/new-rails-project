@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 20170927210521) do
   end
 
   create_table "collaborators", force: :cascade do |t|
-    t.integer  "users"
-    t.integer  "wikis"
+    t.integer  "user_id"
+    t.integer  "wiki_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
