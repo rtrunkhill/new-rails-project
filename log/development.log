@@ -11117,3 +11117,971 @@ LoadError (Unable to autoload constant Collaborator, expected /home/ubuntu/works
   Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
   Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
   Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (25.4ms)
+
+
+Started POST "/collaborators" for 98.167.46.192 at 2017-09-28 22:58:43 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GOST44VeBZh0JmuC0238q1z0Hdmamowv08Si+JWUP6bDuIPIZ3n3+v+5qauxwEcTYYO2/34OYtX51R74U7eJGw==", "wiki_id"=>"16", "email"=>"vaughn@borer.org", "commit"=>"Add collaborator"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "vaughn@borer.org"]]
+  [1m[35mWiki Load (0.2ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 16]]
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 2.2ms)
+
+LoadError (Unable to autoload constant Collaborator, expected /home/ubuntu/workspace/app/models/collaborator.rb to define it):
+  app/controllers/collaborators_controller.rb:15:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (32.9ms)
+
+
+Started POST "/collaborators" for 98.167.46.192 at 2017-09-28 22:59:04 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GOST44VeBZh0JmuC0238q1z0Hdmamowv08Si+JWUP6bDuIPIZ3n3+v+5qauxwEcTYYO2/34OYtX51R74U7eJGw==", "wiki_id"=>"16", "email"=>"vaughn@borer.org", "commit"=>"Add collaborator"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "vaughn@borer.org"]]
+  [1m[36mWiki Load (0.2ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 16]]
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 1.9ms)
+
+LoadError (Unable to autoload constant Collaborator, expected /home/ubuntu/workspace/app/models/collaborator.rb to define it):
+  app/controllers/collaborators_controller.rb:11:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.9ms)
+  [1m[36m (9.7ms)[0m  [1mCREATE TABLE "amounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "price" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (6.6ms)[0m  CREATE TABLE "collaborators" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "users" integer, "wikis" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (9.1ms)[0m  CREATE UNIQUE INDEX "index_collaborators_on_id" ON "collaborators" ("id")
+  [1m[36m (6.4ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "role" integer) [0m
+  [1m[35m (11.8ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (5.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_id" ON "users" ("id")
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (5.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (6.1ms)[0m  CREATE TABLE "wikis" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "private" boolean, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (8.3ms)[0m  [1mCREATE UNIQUE INDEX "index_wikis_on_id" ON "wikis" ("id")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_wikis_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_wikis_on_id' AND type='index'
+
+  [1m[36m (8.9ms)[0m  [1mCREATE  INDEX "index_wikis_on_user_id" ON "wikis" ("user_id")[0m
+  [1m[35m (9.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (11.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (10.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170927210521')[0m
+  [1m[35m (7.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170922210803')
+  [1m[36m (7.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170919222304')[0m
+  [1m[35m (7.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170920225215')
+  [1m[36m (6.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170920032903')[0m
+  [1m[35m (8.3ms)[0m  CREATE TABLE "amounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "price" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (7.7ms)[0m  [1mCREATE TABLE "collaborators" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "users" integer, "wikis" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (6.2ms)[0m  [1mCREATE UNIQUE INDEX "index_collaborators_on_id" ON "collaborators" ("id")[0m
+  [1m[35m (5.9ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "role" integer) 
+  [1m[36m (8.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (7.9ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_id" ON "users" ("id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (6.6ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (9.0ms)[0m  [1mCREATE TABLE "wikis" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "private" boolean, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (7.6ms)[0m  CREATE UNIQUE INDEX "index_wikis_on_id" ON "wikis" ("id")
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_wikis_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_wikis_on_id' AND type='index'
+[0m
+  [1m[35m (5.4ms)[0m  CREATE  INDEX "index_wikis_on_user_id" ON "wikis" ("user_id")
+  [1m[36m (6.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (5.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (7.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170927210521')
+  [1m[36m (7.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170922210803')[0m
+  [1m[35m (6.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170919222304')
+  [1m[36m (5.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170920225215')[0m
+  [1m[35m (8.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170920032903')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Ben Solo"], ["body", "I have a bad feeling about this."], ["private", "f"], ["created_at", "2017-09-28 23:05:48.752463"], ["updated_at", "2017-09-28 23:05:48.752463"]]
+  [1m[35m (7.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Padme Amidala"], ["body", "Do. Or do not. There is no try."], ["private", "f"], ["created_at", "2017-09-28 23:05:48.762909"], ["updated_at", "2017-09-28 23:05:48.762909"]]
+  [1m[36m (12.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Ki-Adi-Mundi"], ["body", "Judge me by my size, do you?"], ["private", "f"], ["created_at", "2017-09-28 23:05:48.778591"], ["updated_at", "2017-09-28 23:05:48.778591"]]
+  [1m[35m (6.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Jabba the Hutt"], ["body", "I find your lack of faith disturbing."], ["private", "f"], ["created_at", "2017-09-28 23:05:48.788169"], ["updated_at", "2017-09-28 23:05:48.788169"]]
+  [1m[36m (11.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Darth Sidious"], ["body", "Fear is the path to the dark side... fear leads to anger... anger leads to hate... hate leads to suffering."], ["private", "f"], ["created_at", "2017-09-28 23:05:48.802172"], ["updated_at", "2017-09-28 23:05:48.802172"]]
+  [1m[35m (10.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Darth Maul"], ["body", "Adventure. Excitement. A Jedi craves not these things."], ["private", "f"], ["created_at", "2017-09-28 23:05:48.816451"], ["updated_at", "2017-09-28 23:05:48.816451"]]
+  [1m[36m (7.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Qui-Gon Jinn"], ["body", "A Jedi uses the Force for knowledge and defense, never for attack."], ["private", "f"], ["created_at", "2017-09-28 23:05:48.826354"], ["updated_at", "2017-09-28 23:05:48.826354"]]
+  [1m[35m (6.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Padme Amidala"], ["body", "You will never find a more wretched hive of scum and villainy. We must be cautious."], ["private", "f"], ["created_at", "2017-09-28 23:05:48.835763"], ["updated_at", "2017-09-28 23:05:48.835763"]]
+  [1m[36m (8.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Ben Solo"], ["body", "Well, you said you wanted to be around when I made a mistake."], ["private", "f"], ["created_at", "2017-09-28 23:05:48.846256"], ["updated_at", "2017-09-28 23:05:48.846256"]]
+  [1m[35m (8.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Boba Fett"], ["body", "I have a bad feeling about this."], ["private", "f"], ["created_at", "2017-09-28 23:05:48.857584"], ["updated_at", "2017-09-28 23:05:48.857584"]]
+  [1m[36m (12.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Sheev Palpatine"], ["body", "It's not impossible. I used to bullseye womp rats in my T-16 back home, they're not much bigger than two meters."], ["private", "f"], ["created_at", "2017-09-28 23:05:48.872983"], ["updated_at", "2017-09-28 23:05:48.872983"]]
+  [1m[35m (6.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Han Solo"], ["body", "If you're saying that coming here was a bad idea, I'm starting to agree with you."], ["private", "f"], ["created_at", "2017-09-28 23:05:48.882620"], ["updated_at", "2017-09-28 23:05:48.882620"]]
+  [1m[36m (15.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Boba Fett"], ["body", "A Jedi uses the Force for knowledge and defense, never for attack."], ["private", "f"], ["created_at", "2017-09-28 23:05:48.902937"], ["updated_at", "2017-09-28 23:05:48.902937"]]
+  [1m[35m (36.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Sheev Palpatine"], ["body", "Judge me by my size, do you?"], ["private", "f"], ["created_at", "2017-09-28 23:05:48.943196"], ["updated_at", "2017-09-28 23:05:48.943196"]]
+  [1m[36m (8.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Darth Vader"], ["body", "You know, that little droid is going to cause me a lot of trouble."], ["private", "f"], ["created_at", "2017-09-28 23:05:48.955261"], ["updated_at", "2017-09-28 23:05:48.955261"]]
+  [1m[35m (10.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'greta@beattylakin.org' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "greta@beattylakin.org"], ["encrypted_password", "$2a$11$d8uEVuN8TFEh3n3cn/tu9OpuXlJb8vjo.9WzpfEBB8eqGGj6a3wTK"], ["role", 0], ["created_at", "2017-09-28 23:05:49.587454"], ["updated_at", "2017-09-28 23:05:49.587454"]]
+  [1m[35m (9.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'shane@fay.info' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "shane@fay.info"], ["encrypted_password", "$2a$11$Lsh8n6h3unMe/ZiunjHLX.p3woK58fFtSGaEt.hEGbuwfM07uCcQG"], ["role", 0], ["created_at", "2017-09-28 23:05:49.738112"], ["updated_at", "2017-09-28 23:05:49.738112"]]
+  [1m[35m (7.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'tyreek_huel@gislason.name' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "tyreek_huel@gislason.name"], ["encrypted_password", "$2a$11$MDrj7miyxU6G1/kHrVBOt.6OfOSyONbZRpPRRQKtvj6E.auD7kjo."], ["role", 0], ["created_at", "2017-09-28 23:05:49.884627"], ["updated_at", "2017-09-28 23:05:49.884627"]]
+  [1m[35m (10.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'maybell.marquardt@labadie.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "maybell.marquardt@labadie.com"], ["encrypted_password", "$2a$11$gzIAlUO3qrvm1IkhukicduJnmkQ8r6Ugb8JbSmiMSKMB0q6Jf9sSm"], ["role", 0], ["created_at", "2017-09-28 23:05:50.033746"], ["updated_at", "2017-09-28 23:05:50.033746"]]
+  [1m[35m (7.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'alta@toy.biz' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "alta@toy.biz"], ["encrypted_password", "$2a$11$9kiiflKny05afREw2.jbiOeTH/6w8qcH24mmnmOpCX4CPQ2zH5D62"], ["role", 0], ["created_at", "2017-09-28 23:05:50.180459"], ["updated_at", "2017-09-28 23:05:50.180459"]]
+  [1m[35m (8.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "wikis"[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+
+
+Started GET "/" for 98.167.46.192 at 2017-09-28 23:06:07 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+Completed 401 Unauthorized in 33ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/users/sign_in" for 98.167.46.192 at 2017-09-28 23:06:07 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (27.5ms)
+Completed 200 OK in 240ms (Views: 230.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 98.167.46.192 at 2017-09-28 23:06:10 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (0.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/registrations/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 98.167.46.192 at 2017-09-28 23:06:16 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"y7lVqnXg9Sio30aFtA0tK6oNQci6VajLYynnGxLFOD4Q5UWBl8cHSiNAhKzWoJaTl3rq7l7BRjFJOFsb1OaOgw==", "user"=>{"email"=>"premium@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@email.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (0.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/registrations/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 40ms (Views: 21.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for 98.167.46.192 at 2017-09-28 23:06:27 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ddAha816MUGUp5oTFsCaTDVIQDMFpkdNkrk5Kq9qLMuujDFAL13DIx84WDp0bSH0CD/rFeEyqbe4qIUqaUmadg==", "user"=>{"email"=>"premium@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@email.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "premium@email.com"], ["encrypted_password", "$2a$11$G/e4zwlxp7NbGRhzY6tY4elIyo1otf8/53a9tauyg8TR3TVNlsgE."], ["role", 0], ["created_at", "2017-09-28 23:06:27.324796"], ["updated_at", "2017-09-28 23:06:27.324796"]]
+  [1m[36m (41.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2017-09-28 23:06:27.368362"], ["current_sign_in_at", "2017-09-28 23:06:27.368362"], ["last_sign_in_ip", "98.167.46.192"], ["current_sign_in_ip", "98.167.46.192"], ["sign_in_count", 1], ["updated_at", "2017-09-28 23:06:27.369382"], ["id", 6]]
+  [1m[35m (9.0ms)[0m  commit transaction
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/
+Completed 302 Found in 206ms (ActiveRecord: 50.8ms)
+
+
+Started GET "/" for 98.167.46.192 at 2017-09-28 23:06:27 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 23ms (Views: 20.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/charges/new" for 98.167.46.192 at 2017-09-28 23:06:30 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ChargesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered charges/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 27ms (Views: 23.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/charges" for 98.167.46.192 at 2017-09-28 23:06:50 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ChargesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JsKBjWo5BU5Fys3NRlo/Xw9jPF7bnGvpKWyrdXc31V/9npGmiB73LM5VD+Qk94TnMhSXeD8IhRMDfRd1sRRj4g==", "stripeToken"=>"tok_1B7B5fFJTrWaSgknB0XiJXxO", "stripeTokenType"=>"card", "stripeEmail"=>"premium@email.com"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "role" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["role", 1], ["updated_at", "2017-09-28 23:06:51.764783"], ["id", 6]]
+  [1m[35m (7.6ms)[0m  commit transaction
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/wikis.6
+Completed 302 Found in 1284ms (ActiveRecord: 8.2ms)
+
+
+Started GET "/wikis.6" for 98.167.46.192 at 2017-09-28 23:06:51 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as 
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.2ms)[0m  SELECT "wikis".* FROM "wikis"  ORDER BY created_at DESC
+  Rendered wikis/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 38ms (Views: 23.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/wikis/new" for 98.167.46.192 at 2017-09-28 23:06:53 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  Rendered wikis/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 23ms (Views: 21.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/wikis" for 98.167.46.192 at 2017-09-28 23:07:06 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"x+CrDeXLpX43EH5XWHFtBTsRgV/68XqJ6bo+T4p23O0cvLsmB+xXHLyPvH463Na9BmYqeR5llHPDq4JPTFVqUA==", "wiki"=>{"title"=>"stupid collaborators", "body"=>"stupid body", "private"=>"1"}, "commit"=>"Save"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "stupid collaborators"], ["body", "stupid body"], ["private", "t"], ["user_id", 6], ["created_at", "2017-09-28 23:07:07.012676"], ["updated_at", "2017-09-28 23:07:07.012676"]]
+  [1m[36m (19.4ms)[0m  [1mcommit transaction[0m
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/wikis/16
+Completed 302 Found in 40ms (ActiveRecord: 20.0ms)
+
+
+Started GET "/wikis/16" for 98.167.46.192 at 2017-09-28 23:07:07 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.2ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 16]]
+  Rendered wikis/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/wikis/16/edit" for 98.167.46.192 at 2017-09-28 23:07:09 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 16]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered collaborators/_form.html.erb (0.8ms)
+  Rendered wikis/edit.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 62ms (Views: 58.6ms | ActiveRecord: 0.4ms)
+  [1m[36mUser Load (2.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started POST "/collaborators" for 98.167.46.192 at 2017-09-28 23:07:32 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Fscza82LK2jI2LL2nY/AXuza0afiyOwYVrw1cMPhLZfNmyNAL6zZCkNHcN//Invm0a16gQZcAuJ8rYlwBcKbKg==", "wiki_id"=>"16", "email"=>"shane@fay.info", "commit"=>"Add collaborator"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "shane@fay.info"]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 16]]
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.4ms)
+
+LoadError (Unable to autoload constant Collaborator, expected /home/ubuntu/workspace/app/models/collaborator.rb to define it):
+  app/controllers/collaborators_controller.rb:11:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (19.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (43.6ms)
+
+
+Started POST "/collaborators" for 98.167.46.192 at 2017-09-28 23:12:40 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Fscza82LK2jI2LL2nY/AXuza0afiyOwYVrw1cMPhLZfNmyNAL6zZCkNHcN//Invm0a16gQZcAuJ8rYlwBcKbKg==", "wiki_id"=>"16", "email"=>"shane@fay.info", "commit"=>"Add collaborator"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "shane@fay.info"]]
+  [1m[35mWiki Load (0.2ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 16]]
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 1.6ms)
+
+LoadError (Unable to autoload constant Collaborator, expected /home/ubuntu/workspace/app/models/collaborator.rb to define it):
+  app/controllers/collaborators_controller.rb:11:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.2ms)
+
+
+Started GET "/" for 98.167.46.192 at 2017-09-30 00:00:23 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+Completed 401 Unauthorized in 30ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 98.167.46.192 at 2017-09-30 00:00:23 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (2.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (38.2ms)
+Completed 200 OK in 381ms (Views: 364.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users/sign_in" for 98.167.46.192 at 2017-09-30 00:00:27 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QAaf1huqHjwLsqXnrD2CHmijJL74v5R70MHwRyyjbDJEtOHCnQP0pzq7GZyegpfjqDWqXce0Pq3DHnTv1uP0Ww==", "user"=>{"email"=>"skepts@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "skepts@gmail.com"]]
+Completed 401 Unauthorized in 11ms (ActiveRecord: 0.4ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QAaf1huqHjwLsqXnrD2CHmijJL74v5R70MHwRyyjbDJEtOHCnQP0pzq7GZyegpfjqDWqXce0Pq3DHnTv1uP0Ww==", "user"=>{"email"=>"skepts@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (0.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 181ms (Views: 23.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 98.167.46.192 at 2017-09-30 00:00:30 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/registrations/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 30ms (Views: 28.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 98.167.46.192 at 2017-09-30 00:00:36 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (0.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 30ms (Views: 27.5ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (7.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started POST "/users/sign_in" for 98.167.46.192 at 2017-09-30 00:01:10 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cOChXArNoEVr9tZ41wBFvMMr0Kp6bwNk/OXXGZUIrDt0Ut9IjGRK3lr/agPlv1BBA71eSUVkqbLvOlOxb0g0Ug==", "user"=>{"email"=>"premium@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "premium@email.com"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-09-30 00:01:10.691271"], ["sign_in_count", 2], ["updated_at", "2017-09-30 00:01:10.693352"], ["id", 6]]
+  [1m[35m (17.6ms)[0m  commit transaction
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/
+Completed 302 Found in 189ms (ActiveRecord: 18.6ms)
+
+
+Started GET "/" for 98.167.46.192 at 2017-09-30 00:01:10 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 29ms (Views: 26.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/wikis" for 98.167.46.192 at 2017-09-30 00:01:14 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.4ms)[0m  [1mSELECT "wikis".* FROM "wikis"  ORDER BY created_at DESC[0m
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 1.0ms)
+
+NoMethodError (undefined method `owner' for #<Wiki:0x007f5aab25bef0>):
+  app/policies/wiki_policy.rb:17:in `block in resolve'
+  app/policies/wiki_policy.rb:16:in `resolve'
+  app/controllers/wikis_controller.rb:5:in `index'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (34.5ms)
+
+
+Started GET "/wikis" for 98.167.46.192 at 2017-09-30 00:07:21 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.6ms)[0m  [1mSELECT "wikis".* FROM "wikis"  ORDER BY created_at DESC[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+Completed 500 Internal Server Error in 129ms (ActiveRecord: 2.6ms)
+
+NameError (undefined local variable or method `current_user' for #<WikiPolicy::Scope:0x007f5aab8d7180>):
+  app/policies/wiki_policy.rb:17:in `block in resolve'
+  app/policies/wiki_policy.rb:16:in `resolve'
+  app/controllers/wikis_controller.rb:5:in `index'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (29.2ms)
+
+
+Started GET "/wikis" for 98.167.46.192 at 2017-09-30 00:07:32 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.8ms)[0m  SELECT "wikis".* FROM "wikis"  ORDER BY created_at DESC
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered wikis/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 151ms (Views: 54.1ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/wikis/16" for 98.167.46.192 at 2017-09-30 00:07:35 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (1.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 16]]
+  Rendered wikis/show.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 82ms (Views: 75.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/wikis/16/edit" for 98.167.46.192 at 2017-09-30 00:07:43 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.2ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 16]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered collaborators/_form.html.erb (1.7ms)
+  Rendered wikis/edit.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 55ms (Views: 49.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/collaborators" for 98.167.46.192 at 2017-09-30 00:10:09 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GCq0UTeRs3mIAPr4bvnt8ALTW8dIKQXt3QhjopJEX+M3j1rY1rba4+tOmkgnYcqNoK7mQFUUMNKkVrfxswDG2g==", "wiki_id"=>"16", "email"=>"greta@beattylakin.org", "commit"=>"Add collaborator"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "greta@beattylakin.org"]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 16]]
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.7ms)
+
+LoadError (Unable to autoload constant Collaborator, expected /home/ubuntu/workspace/app/models/collaborator.rb to define it):
+  app/controllers/collaborators_controller.rb:11:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (27.0ms)
+
+
+Started POST "/collaborators" for 98.167.46.192 at 2017-09-30 00:11:12 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uIXhrLW6m7fCrBb710WowQRzfQgtA8qeNFV4qdn76GOXIA8lVJ3yLaHidkue3Y+8pg7AjzA+/6FNC6z6+L9xWg==", "wiki_id"=>"16", "email"=>"shane@fay.info", "commit"=>"Add collaborator"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "shane@fay.info"]]
+  [1m[35mWiki Load (0.2ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 16]]
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.6ms)
+
+LoadError (Unable to autoload constant Collaborator, expected /home/ubuntu/workspace/app/models/collaborator.rb to define it):
+  app/controllers/collaborators_controller.rb:11:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (31.9ms)
+  [1m[36m (25.7ms)[0m  [1mCREATE TABLE "amounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "price" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (15.8ms)[0m  CREATE TABLE "collaborators" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "users" integer, "wikis" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (14.6ms)[0m  CREATE UNIQUE INDEX "index_collaborators_on_id" ON "collaborators" ("id")
+  [1m[36m (13.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "role" integer) [0m
+  [1m[35m (16.0ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (19.6ms)[0m  CREATE UNIQUE INDEX "index_users_on_id" ON "users" ("id")
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (15.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (21.2ms)[0m  CREATE TABLE "wikis" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "private" boolean, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (12.0ms)[0m  [1mCREATE UNIQUE INDEX "index_wikis_on_id" ON "wikis" ("id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_wikis_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_wikis_on_id' AND type='index'
+
+  [1m[36m (13.4ms)[0m  [1mCREATE  INDEX "index_wikis_on_user_id" ON "wikis" ("user_id")[0m
+  [1m[35m (12.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (12.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (13.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170927210521')[0m
+  [1m[35m (12.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170920032903')
+  [1m[36m (14.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170922210803')[0m
+  [1m[35m (12.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170920225215')
+  [1m[36m (12.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170919222304')[0m
+  [1m[35m (12.4ms)[0m  CREATE TABLE "amounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "price" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (14.8ms)[0m  [1mCREATE TABLE "collaborators" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "users" integer, "wikis" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (20.6ms)[0m  [1mCREATE UNIQUE INDEX "index_collaborators_on_id" ON "collaborators" ("id")[0m
+  [1m[35m (17.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "role" integer) 
+  [1m[36m (14.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (12.9ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_id" ON "users" ("id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_id' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (21.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (16.9ms)[0m  [1mCREATE TABLE "wikis" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "private" boolean, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (19.6ms)[0m  CREATE UNIQUE INDEX "index_wikis_on_id" ON "wikis" ("id")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_wikis_on_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_wikis_on_id' AND type='index'
+[0m
+  [1m[35m (12.1ms)[0m  CREATE  INDEX "index_wikis_on_user_id" ON "wikis" ("user_id")
+  [1m[36m (19.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (15.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (14.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170927210521')
+  [1m[36m (14.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170920032903')[0m
+  [1m[35m (17.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170922210803')
+  [1m[36m (14.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170920225215')[0m
+  [1m[35m (23.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170919222304')
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Sheev Palpatine"], ["body", "You do have your moments. Not many, but you have them."], ["private", "f"], ["created_at", "2017-09-30 00:11:38.704699"], ["updated_at", "2017-09-30 00:11:38.704699"]]
+  [1m[35m (12.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Leia Organa"], ["body", "You do have your moments. Not many, but you have them."], ["private", "f"], ["created_at", "2017-09-30 00:11:38.722666"], ["updated_at", "2017-09-30 00:11:38.722666"]]
+  [1m[36m (15.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Padme Amidala"], ["body", "Judge me by my size, do you?"], ["private", "f"], ["created_at", "2017-09-30 00:11:38.742931"], ["updated_at", "2017-09-30 00:11:38.742931"]]
+  [1m[35m (18.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Darth Caedus"], ["body", "A Jedi uses the Force for knowledge and defense, never for attack."], ["private", "f"], ["created_at", "2017-09-30 00:11:38.766654"], ["updated_at", "2017-09-30 00:11:38.766654"]]
+  [1m[36m (20.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Sheev Palpatine"], ["body", "Only at the end do you realize the power of the Dark Side."], ["private", "f"], ["created_at", "2017-09-30 00:11:38.793545"], ["updated_at", "2017-09-30 00:11:38.793545"]]
+  [1m[35m (21.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Nute Gunray"], ["body", "Aren't you a little short for a Stormtrooper?"], ["private", "f"], ["created_at", "2017-09-30 00:11:38.821038"], ["updated_at", "2017-09-30 00:11:38.821038"]]
+  [1m[36m (12.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Nute Gunray"], ["body", "Aren't you a little short for a Stormtrooper?"], ["private", "f"], ["created_at", "2017-09-30 00:11:38.838046"], ["updated_at", "2017-09-30 00:11:38.838046"]]
+  [1m[35m (14.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Chewbacca"], ["body", "Would somebody get this big walking carpet out of my way?"], ["private", "f"], ["created_at", "2017-09-30 00:11:38.857302"], ["updated_at", "2017-09-30 00:11:38.857302"]]
+  [1m[36m (12.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Darth Sidious"], ["body", "Well, you said you wanted to be around when I made a mistake."], ["private", "f"], ["created_at", "2017-09-30 00:11:38.875686"], ["updated_at", "2017-09-30 00:11:38.875686"]]
+  [1m[35m (16.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Leia Organa"], ["body", "Only at the end do you realize the power of the Dark Side."], ["private", "f"], ["created_at", "2017-09-30 00:11:38.897656"], ["updated_at", "2017-09-30 00:11:38.897656"]]
+  [1m[36m (15.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Panaka"], ["body", "Judge me by my size, do you?"], ["private", "f"], ["created_at", "2017-09-30 00:11:38.918640"], ["updated_at", "2017-09-30 00:11:38.918640"]]
+  [1m[35m (15.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Yoda"], ["body", "You do have your moments. Not many, but you have them."], ["private", "f"], ["created_at", "2017-09-30 00:11:38.938071"], ["updated_at", "2017-09-30 00:11:38.938071"]]
+  [1m[36m (15.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Kylo Ren"], ["body", "Judge me by my size, do you?"], ["private", "f"], ["created_at", "2017-09-30 00:11:38.958844"], ["updated_at", "2017-09-30 00:11:38.958844"]]
+  [1m[35m (16.0ms)[0m  commit transaction
+  [1m[36m (1.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Padme Amidala"], ["body", "You'll find I'm full of surprises!"], ["private", "f"], ["created_at", "2017-09-30 00:11:38.979848"], ["updated_at", "2017-09-30 00:11:38.979848"]]
+  [1m[36m (12.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Ki-Adi-Mundi"], ["body", "You do have your moments. Not many, but you have them."], ["private", "f"], ["created_at", "2017-09-30 00:11:38.997718"], ["updated_at", "2017-09-30 00:11:38.997718"]]
+  [1m[35m (11.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'cristian@davis.co' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "cristian@davis.co"], ["encrypted_password", "$2a$11$DPo4XNNumzmiTFmNA27L8uHMcxsFirEzDtI2tPd0WRyL5uu44ppIi"], ["role", 0], ["created_at", "2017-09-30 00:11:39.727602"], ["updated_at", "2017-09-30 00:11:39.727602"]]
+  [1m[35m (19.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'earnest_senger@sipesbartoletti.org' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "earnest_senger@sipesbartoletti.org"], ["encrypted_password", "$2a$11$ubl4XVx1PAE0wybyDKvRIOZtFN2nOx.nPTshdJOVdBAivM6iS88NW"], ["role", 0], ["created_at", "2017-09-30 00:11:39.893284"], ["updated_at", "2017-09-30 00:11:39.893284"]]
+  [1m[35m (18.3ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'garret_jacobi@kuvalis.com' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "garret_jacobi@kuvalis.com"], ["encrypted_password", "$2a$11$0li.JQzCla5Fx7.YtmaHbOmWKw8yw98d.8G8K1ta8YKK1WgDX8Dzu"], ["role", 0], ["created_at", "2017-09-30 00:11:40.065633"], ["updated_at", "2017-09-30 00:11:40.065633"]]
+  [1m[35m (19.8ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'beie_lemke@mccullough.com' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "beie_lemke@mccullough.com"], ["encrypted_password", "$2a$11$zbkNgB3PAuzHlLgYjRczTOWpBoS5rCucRe/EcXtGPKQRnFu7W8xoq"], ["role", 0], ["created_at", "2017-09-30 00:11:40.247121"], ["updated_at", "2017-09-30 00:11:40.247121"]]
+  [1m[35m (23.4ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'hailie.tromp@schroeder.io' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "hailie.tromp@schroeder.io"], ["encrypted_password", "$2a$11$aBfOKlUlcXTnIkfRUqUAD.gk9Cy1ZfErz.Vs45eL.qGWhEfyDWKmO"], ["role", 0], ["created_at", "2017-09-30 00:11:40.418304"], ["updated_at", "2017-09-30 00:11:40.418304"]]
+  [1m[35m (15.9ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "wikis"[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+
+
+Started GET "/" for 98.167.46.192 at 2017-09-30 00:12:04 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+Completed 401 Unauthorized in 51ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/users/sign_in" for 98.167.46.192 at 2017-09-30 00:12:05 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (2.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (39.5ms)
+Completed 200 OK in 333ms (Views: 315.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 98.167.46.192 at 2017-09-30 00:12:19 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (0.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/registrations/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 35ms (Views: 33.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 98.167.46.192 at 2017-09-30 00:12:25 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hvg6JDlTpAnC54xp9lD6NxmDQacsPXJSCgpRKAA2ZWypXdSt2HTNk6Gp7Nm/yN1Ku/78IDEAR21zVIV7IXL8VQ==", "user"=>{"email"=>"premium@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@email.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (0.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/registrations/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 57ms (Views: 28.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for 98.167.46.192 at 2017-09-30 00:12:36 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wUVo33bi4H2vZonUOV3H08HU91hs8ZSsl3/pDFI2gVzu4IZWl8WJ58wo6WRwxeCuY6lK33HMoZPuIT1fc3IYZQ==", "user"=>{"email"=>"premium@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@email.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (0.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/registrations/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 189ms (Views: 26.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for 98.167.46.192 at 2017-09-30 00:12:42 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oys1s04C6L24QH9MQEpPrJ1irTgr2S2S5f33lOT0lCKMjts6ryWBJ9sOH/wJ0mjRPx8QvzbkGK2coyPHxbANGw==", "user"=>{"email"=>"premium@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@email.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "premium@email.com"], ["encrypted_password", "$2a$11$hOygY.w3ozkurF6VebpmCuUwjF4NYCzvYVSFYrT5PFbiBJ1FvRlqq"], ["role", 0], ["created_at", "2017-09-30 00:12:42.286881"], ["updated_at", "2017-09-30 00:12:42.286881"]]
+  [1m[35m (15.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2017-09-30 00:12:42.306374"], ["current_sign_in_at", "2017-09-30 00:12:42.306374"], ["last_sign_in_ip", "98.167.46.192"], ["current_sign_in_ip", "98.167.46.192"], ["sign_in_count", 1], ["updated_at", "2017-09-30 00:12:42.308016"], ["id", 6]]
+  [1m[36m (16.8ms)[0m  [1mcommit transaction[0m
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/
+Completed 302 Found in 191ms (ActiveRecord: 34.1ms)
+
+
+Started GET "/" for 98.167.46.192 at 2017-09-30 00:12:42 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 31ms (Views: 28.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/charges/new" for 98.167.46.192 at 2017-09-30 00:12:44 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ChargesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  Rendered charges/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 41ms (Views: 35.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/charges" for 98.167.46.192 at 2017-09-30 00:13:06 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ChargesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2Zb/C+OagiJOC7e+exwQ+dViH/W1dcQnM1O0hI21zMX2MxGCAr3ruC1F1w4yhDeEdx+icqhI8RhKDWDXrPFV/A==", "stripeToken"=>"tok_1B7YbLFJTrWaSgknI22VD7ye", "stripeTokenType"=>"card", "stripeEmail"=>"premium@email.com"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "role" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["role", 1], ["updated_at", "2017-09-30 00:13:07.775376"], ["id", 6]]
+  [1m[36m (15.3ms)[0m  [1mcommit transaction[0m
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/wikis.6
+Completed 302 Found in 1665ms (ActiveRecord: 16.1ms)
+
+
+Started GET "/wikis.6" for 98.167.46.192 at 2017-09-30 00:13:07 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as 
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.4ms)[0m  [1mSELECT "wikis".* FROM "wikis"  ORDER BY created_at DESC[0m
+  Rendered wikis/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 46ms (Views: 28.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/wikis/new" for 98.167.46.192 at 2017-09-30 00:13:10 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered wikis/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 29ms (Views: 23.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/wikis" for 98.167.46.192 at 2017-09-30 00:13:21 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XSDnLK32B5klyhgA76OX1E99fmmvTbfdhdaGrtt/dnVyhQmlTNFuA0aEeLCmO7Cp7QDD7rJwguL8iFL9+jvvTA==", "wiki"=>{"title"=>"still on collabs", "body"=>"stupid collabs", "private"=>"1"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "still on collabs"], ["body", "stupid collabs"], ["private", "t"], ["user_id", 6], ["created_at", "2017-09-30 00:13:21.686511"], ["updated_at", "2017-09-30 00:13:21.686511"]]
+  [1m[35m (16.2ms)[0m  commit transaction
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/wikis/16
+Completed 302 Found in 32ms (ActiveRecord: 17.0ms)
+
+
+Started GET "/wikis/16" for 98.167.46.192 at 2017-09-30 00:13:21 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.4ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 16]]
+  Rendered wikis/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 41ms (Views: 36.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/wikis/16/edit" for 98.167.46.192 at 2017-09-30 00:13:24 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.2ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 16]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered collaborators/_form.html.erb (2.5ms)
+  Rendered wikis/edit.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 64ms (Views: 58.3ms | ActiveRecord: 1.0ms)
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started POST "/collaborators" for 98.167.46.192 at 2017-09-30 00:13:43 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4Jb1058L27nxuSWRBtCy6YSUVekUw6eQVVCf3LCPVj3PMxtafiyyI5L3RSFPSJWUJunobgn+kq8sDkuPkcvPBA==", "wiki_id"=>"16", "email"=>"cristian@davis.co\"", "commit"=>"Add collaborator"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "cristian@davis.co\""]]
+  [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 16]]
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/wikis/16/edit
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/wikis/16/edit" for 98.167.46.192 at 2017-09-30 00:13:43 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 16]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered collaborators/_form.html.erb (0.6ms)
+  Rendered wikis/edit.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 34ms (Views: 30.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/collaborators" for 98.167.46.192 at 2017-09-30 00:13:50 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g2XcsxUmmhnyECXPindkDc+frF99FfzK5Dxuzn5ugwGswDI69AHzg5FeRX/D70NwbeIR2GAoyfWdYrqdXyoaOA==", "wiki_id"=>"16", "email"=>"cristian@davis.co\"", "commit"=>"Add collaborator"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "cristian@davis.co\""]]
+  [1m[35mWiki Load (0.3ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 16]]
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/wikis/16/edit
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/wikis/16/edit" for 98.167.46.192 at 2017-09-30 00:13:50 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.2ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 16]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered collaborators/_form.html.erb (0.6ms)
+  Rendered wikis/edit.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 42ms (Views: 37.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/collaborators" for 98.167.46.192 at 2017-09-30 00:14:16 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3u7JnyX4xO0C4Q3z8lqfZxYy8OVNi570c4qpnUwxYrvxSycWxN+td2GvbUO7wrgatE9NYlC2q8sK1H3ObXX7gg==", "wiki_id"=>"16", "email"=>"earnest_senger@sipesbartoletti.org", "commit"=>"Add collaborator"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "earnest_senger@sipesbartoletti.org"]]
+  [1m[35mWiki Load (0.4ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 16]]
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 1.1ms)
+
+LoadError (Unable to autoload constant Collaborator, expected /home/ubuntu/workspace/app/models/collaborator.rb to define it):
+  app/controllers/collaborators_controller.rb:11:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (16.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (48.4ms)
+
+
+Started POST "/collaborators" for 98.167.46.192 at 2017-09-30 00:21:06 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3u7JnyX4xO0C4Q3z8lqfZxYy8OVNi570c4qpnUwxYrvxSycWxN+td2GvbUO7wrgatE9NYlC2q8sK1H3ObXX7gg==", "wiki_id"=>"16", "email"=>"earnest_senger@sipesbartoletti.org", "commit"=>"Add collaborator"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "earnest_senger@sipesbartoletti.org"]]
+  [1m[36mWiki Load (0.2ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 16]]
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 1.9ms)
+
+NameError (undefined local variable or method `wiki' for #<CollaboratorsController:0x007ff20704d2f0>
+Did you mean?  @wiki):
+  app/controllers/collaborators_controller.rb:11:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (31.3ms)
+
+
+Started POST "/collaborators" for 98.167.46.192 at 2017-09-30 00:21:24 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3u7JnyX4xO0C4Q3z8lqfZxYy8OVNi570c4qpnUwxYrvxSycWxN+td2GvbUO7wrgatE9NYlC2q8sK1H3ObXX7gg==", "wiki_id"=>"16", "email"=>"earnest_senger@sipesbartoletti.org", "commit"=>"Add collaborator"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "earnest_senger@sipesbartoletti.org"]]
+  [1m[35mWiki Load (0.3ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 16]]
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 2.3ms)
+
+LoadError (Unable to autoload constant Collaborator, expected /home/ubuntu/workspace/app/models/collaborator.rb to define it):
+  app/controllers/collaborators_controller.rb:11:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (32.2ms)
