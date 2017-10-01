@@ -6,7 +6,7 @@
         Give this person power over my wiki! <%= text_field_tag :email %>
         <%= submit_tag 'Add collaborator' %>
       <% end %>
-        <%= form_tag(collaborators_path(@wiki.id), action: :destroy, method: :delete) do%>
+        <%= form_tag(collaborator_path(@wiki), action: :destroy, method: :delete) do%>
         <%= hidden_field_tag :wiki_id, @wiki.id %>
         I no longer need this collaborator! <%= text_field_tag :email %>
         <%= submit_tag 'Remove collaborator' %>

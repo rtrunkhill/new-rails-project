@@ -14366,3 +14366,1244 @@ Processing by WikisController#edit as HTML
   Rendered collaborators/_form.html.erb (2.1ms)
   Rendered wikis/edit.html.erb within layouts/application (6.5ms)
 Completed 200 OK in 32ms (Views: 27.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 98.167.46.192 at 2017-10-01 18:05:07 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered welcome/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 338ms (Views: 276.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/wikis" for 98.167.46.192 at 2017-10-01 18:05:13 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.3ms)[0m  SELECT "wikis".* FROM "wikis"  ORDER BY created_at DESC
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered wikis/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 56ms (Views: 24.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/wikis/19" for 98.167.46.192 at 2017-10-01 18:05:14 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.3ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  Rendered wikis/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 25ms (Views: 20.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/wikis/19/edit" for 98.167.46.192 at 2017-10-01 18:05:16 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.2ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered collaborators/_form.html.erb (2.4ms)
+  Rendered wikis/edit.html.erb within layouts/application (873.0ms)
+Completed 200 OK in 899ms (Views: 894.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/collaborators" for 98.167.46.192 at 2017-10-01 18:05:47 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rb3os4bJD44BxpCuOd5NDojsKmDequ4zIaq4laCX+IHb7zH+0cnwpX5S/wTNOBThmlbU8giy9jv0t7Lv4CkFEg==", "wiki_id"=>"19", "email"=>"glenna_oreilly@dare.io", "commit"=>"Add collaborator"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "glenna_oreilly@dare.io"]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "collaborators" ON "users"."id" = "collaborators"."user_id" WHERE "collaborators"."wiki_id" = ? AND "users"."id" = ? LIMIT 1  [["wiki_id", 19], ["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (112.8ms)[0m  INSERT INTO "collaborators" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2017-10-01 18:05:47.762667"], ["updated_at", "2017-10-01 18:05:47.762667"]]
+  [1m[36m (18.4ms)[0m  [1mcommit transaction[0m
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/wikis/19/edit
+Completed 302 Found in 176ms (ActiveRecord: 132.5ms)
+
+
+Started GET "/wikis/19/edit" for 98.167.46.192 at 2017-10-01 18:05:48 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered collaborators/_form.html.erb (0.8ms)
+  Rendered wikis/edit.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 26ms (Views: 22.5ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/collaborators.19" for 98.167.46.192 at 2017-10-01 18:05:52 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [DELETE] "/collaborators.19"):
+  actionpack (4.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:20:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.8) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.8) lib/rails/engine.rb:518:in `call'
+  railties (4.2.8) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (36.6ms)
+
+
+Started DELETE "/collaborators.19" for 98.167.46.192 at 2017-10-01 18:10:30 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [DELETE] "/collaborators.19"):
+  actionpack (4.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:20:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.8) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.8) lib/rails/engine.rb:518:in `call'
+  railties (4.2.8) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (68.2ms)
+
+
+Started DELETE "/collaborators.19" for 98.167.46.192 at 2017-10-01 18:10:48 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [DELETE] "/collaborators.19"):
+  actionpack (4.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:20:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.8) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.8) lib/rails/engine.rb:518:in `call'
+  railties (4.2.8) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (29.7ms)
+
+
+Started GET "/" for 98.167.46.192 at 2017-10-01 18:11:19 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered welcome/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 378ms (Views: 309.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/wikis" for 98.167.46.192 at 2017-10-01 18:11:24 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.4ms)[0m  SELECT "wikis".* FROM "wikis"  ORDER BY created_at DESC
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered wikis/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 117ms (Views: 81.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/wikis/19" for 98.167.46.192 at 2017-10-01 18:11:25 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.3ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  Rendered wikis/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 29ms (Views: 21.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/wikis/19/edit" for 98.167.46.192 at 2017-10-01 18:11:26 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered collaborators/_form.html.erb (1.7ms)
+  Rendered wikis/edit.html.erb within layouts/application (624.5ms)
+Completed 200 OK in 646ms (Views: 642.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/collaborators" for 98.167.46.192 at 2017-10-01 18:11:45 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1tBYE5ApuznrUrJQ7nQGTn8J7VkQu6I0nsWcYomD80yggoFexylEEpTG3foakl+hbbMTy8ajujxL2JYYyT0O3w==", "wiki_id"=>"19", "email"=>"glenna_oreilly@dare.io", "commit"=>"Add collaborator"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "glenna_oreilly@dare.io"]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "collaborators" ON "users"."id" = "collaborators"."user_id" WHERE "collaborators"."wiki_id" = ? AND "users"."id" = ? LIMIT 1  [["wiki_id", 19], ["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "collaborators" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2017-10-01 18:11:45.946771"], ["updated_at", "2017-10-01 18:11:45.946771"]]
+  [1m[36m (14.9ms)[0m  [1mcommit transaction[0m
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/wikis/19/edit
+Completed 302 Found in 64ms (ActiveRecord: 16.8ms)
+
+
+Started GET "/wikis/19/edit" for 98.167.46.192 at 2017-10-01 18:11:46 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered collaborators/_form.html.erb (0.7ms)
+  Rendered wikis/edit.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 27ms (Views: 23.1ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/collaborators" for 98.167.46.192 at 2017-10-01 18:11:50 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [DELETE] "/collaborators"):
+  actionpack (4.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:20:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.8) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.8) lib/rails/engine.rb:518:in `call'
+  railties (4.2.8) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (32.8ms)
+
+
+Started POST "/collaborators" for 98.167.46.192 at 2017-10-01 20:33:41 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0JMJbUKqSQ+hfpu/IIga/b83F76Woycf+re0XOLB+DimwdAgFaq2JN7q9BXUbkMSrY3pLEC7Pxcvqr4mon8Fqw==", "wiki_id"=>"19", "email"=>"glenna_oreilly@dare.io", "commit"=>"Add collaborator"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "glenna_oreilly@dare.io"]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "collaborators" ON "users"."id" = "collaborators"."user_id" WHERE "collaborators"."wiki_id" = ? AND "users"."id" = ? LIMIT 1  [["wiki_id", 19], ["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "collaborators" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2017-10-01 20:33:41.708009"], ["updated_at", "2017-10-01 20:33:41.708009"]]
+  [1m[36m (10.4ms)[0m  [1mcommit transaction[0m
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/wikis/19/edit
+Completed 302 Found in 28ms (ActiveRecord: 11.7ms)
+
+
+Started GET "/wikis/19/edit" for 98.167.46.192 at 2017-10-01 20:33:41 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.2ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered collaborators/_form.html.erb (2.1ms)
+  Rendered wikis/edit.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 79ms (Views: 74.2ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/collaborators.19" for 98.167.46.192 at 2017-10-01 20:34:10 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [DELETE] "/collaborators.19"):
+  actionpack (4.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:20:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.8) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.8) lib/rails/engine.rb:518:in `call'
+  railties (4.2.8) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (43.2ms)
+
+
+Started DELETE "/collaborators.19" for 98.167.46.192 at 2017-10-01 20:36:04 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [DELETE] "/collaborators.19"):
+  actionpack (4.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:20:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.8) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.8) lib/rails/engine.rb:518:in `call'
+  railties (4.2.8) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (35.3ms)
+
+
+Started GET "/" for 98.167.46.192 at 2017-10-01 20:36:37 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered welcome/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 363ms (Views: 310.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/wikis" for 98.167.46.192 at 2017-10-01 20:36:43 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.3ms)[0m  SELECT "wikis".* FROM "wikis"  ORDER BY created_at DESC
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered wikis/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 133ms (Views: 95.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/wikis/19" for 98.167.46.192 at 2017-10-01 20:36:44 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.3ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  Rendered wikis/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 28ms (Views: 23.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/wikis/19" for 98.167.46.192 at 2017-10-01 20:36:48 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  Rendered wikis/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 27ms (Views: 23.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wikis/19/edit" for 98.167.46.192 at 2017-10-01 20:36:51 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.2ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered collaborators/_form.html.erb (6.7ms)
+  Rendered wikis/edit.html.erb within layouts/application (788.6ms)
+Completed 500 Internal Server Error in 796ms (ActiveRecord: 0.6ms)
+
+ActionView::Template::Error (undefined method `user_id' for nil:NilClass):
+     6:         Give this person power over my wiki! <%= text_field_tag :email %>
+     7:         <%= submit_tag 'Add collaborator' %>
+     8:       <% end %>
+     9:         <%= form_tag(collaborators_path(@collaborator.user_id), action: :destroy, method: :delete) do%>
+    10:         <%= hidden_field_tag :wiki_id, @wiki.id %>
+    11:         I no longer need this collaborator! <%= text_field_tag :email %>
+    12:         <%= submit_tag 'Remove collaborator' %>
+  app/views/collaborators/_form.html.erb:9:in `_app_views_collaborators__form_html_erb___2609611502543739155_69965516253760'
+  app/views/wikis/edit.html.erb:28:in `_app_views_wikis_edit_html_erb___10829745782753378_37295400'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (29.1ms)
+
+
+Started GET "/wikis/19/edit" for 98.167.46.192 at 2017-10-01 20:37:11 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 19]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered collaborators/_form.html.erb (1.9ms)
+  Rendered wikis/edit.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 32ms (Views: 28.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/collaborators" for 98.167.46.192 at 2017-10-01 20:39:28 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ra0Yg8Hd/nMwZClX2f1jsU/9pQ/rSx0ayxTL2VhGaUwz/8HOlt0BWE/wRv0tGzpeXUdbnT1TBRIeCcGjGPiU3w==", "wiki_id"=>"19", "email"=>"standard@email.com", "commit"=>"Add collaborator"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "standard@email.com"]]
+  [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 19]]
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/wikis/19/edit
+Completed 302 Found in 7ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/wikis/19/edit" for 98.167.46.192 at 2017-10-01 20:39:28 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 19]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered collaborators/_form.html.erb (2.0ms)
+  Rendered wikis/edit.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 34ms (Views: 30.0ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for 98.167.46.192 at 2017-10-01 20:39:38 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"x0Z3u0E4YH2sxp7e6gfS8g5Ky13vSEjlVdobReBJMEmxFK72FjifVtNS8XQe4YsdHPA1zzlQUO2AxxE/oPfN2g=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/
+Completed 302 Found in 8ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 98.167.46.192 at 2017-10-01 20:39:39 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 98.167.46.192 at 2017-10-01 20:39:39 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (2.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 53ms (Views: 49.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 98.167.46.192 at 2017-10-01 20:39:43 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (0.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/registrations/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 34ms (Views: 32.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 98.167.46.192 at 2017-10-01 20:39:52 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AF/zAXc1nVDT2Ss0craRd6PzrsSq5MGoKDikfVWB+HLrKxMCib5Uzu59sylOw52+d/CBUaZDR85nII8ITSI+yw==", "user"=>{"email"=>"standard@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@email.com' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "standard@email.com"], ["encrypted_password", "$2a$11$sgnmFwigaak7XeOred.x0u.RxTpBGnpg.CD.ohxwNWcCZrhQeZhbm"], ["role", 0], ["created_at", "2017-10-01 20:39:52.790515"], ["updated_at", "2017-10-01 20:39:52.790515"]]
+  [1m[35m (10.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2017-10-01 20:39:52.804713"], ["current_sign_in_at", "2017-10-01 20:39:52.804713"], ["last_sign_in_ip", "98.167.46.192"], ["current_sign_in_ip", "98.167.46.192"], ["sign_in_count", 1], ["updated_at", "2017-10-01 20:39:52.805880"], ["id", 7]]
+  [1m[36m (9.6ms)[0m  [1mcommit transaction[0m
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/
+Completed 302 Found in 327ms (ActiveRecord: 21.4ms)
+
+
+Started GET "/" for 98.167.46.192 at 2017-10-01 20:39:52 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 20ms (Views: 18.4ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/users/sign_out" for 98.167.46.192 at 2017-10-01 20:39:56 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"eR1Iu4ixHsTZxGPLxoNaVM/X8jJUu4R9I99yNjzkouuSaai4djrXWuRg+9b69ladG9Tdp1gcAhtsx1lDJEdkUg=="}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/
+Completed 302 Found in 5ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 98.167.46.192 at 2017-10-01 20:39:57 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 98.167.46.192 at 2017-10-01 20:39:57 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 48ms (Views: 45.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 98.167.46.192 at 2017-10-01 20:40:06 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s8/JRFDoYSYwzlxpqjjLOVrWChkqCD/QAR7otAtJXsmzo0aeJKz1Vuv/0UnkaaJr61+ycOyC+jCzNkcDDd0SIw==", "user"=>{"email"=>"premium@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "premium@gmail.com"]]
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.4ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s8/JRFDoYSYwzlxpqjjLOVrWChkqCD/QAR7otAtJXsmzo0aeJKz1Vuv/0UnkaaJr61+ycOyC+jCzNkcDDd0SIw==", "user"=>{"email"=>"premium@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 167ms (Views: 26.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 98.167.46.192 at 2017-10-01 20:40:12 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"owAOuBaSdxcj5JXXOYlgl6xgSGfbkQRyxNrVtlYM+9GjbIFiYtbjZ/jVGPd32AnFHenwDh0bwZJ28noBUJi3Ow==", "user"=>{"email"=>"premium@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "premium@gmail.com"]]
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.1ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"owAOuBaSdxcj5JXXOYlgl6xgSGfbkQRyxNrVtlYM+9GjbIFiYtbjZ/jVGPd32AnFHenwDh0bwZJ28noBUJi3Ow==", "user"=>{"email"=>"premium@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (0.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 273ms (Views: 22.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 98.167.46.192 at 2017-10-01 20:40:23 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FIUpsPuTLBEhgHlI/qdjX9JXyQrDKcEb6jeHRqYWnFoU6aZqj9e4Yfqx9Giw9goNY95xYwWjBPtYHyjxoILQsA==", "user"=>{"email"=>"premium@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "premium@email.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["current_sign_in_at", "2017-10-01 20:40:23.756593"], ["sign_in_count", 2], ["updated_at", "2017-10-01 20:40:23.757683"], ["id", 6]]
+  [1m[36m (8.6ms)[0m  [1mcommit transaction[0m
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/
+Completed 302 Found in 156ms (ActiveRecord: 9.2ms)
+
+
+Started GET "/" for 98.167.46.192 at 2017-10-01 20:40:23 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 23ms (Views: 20.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wikis" for 98.167.46.192 at 2017-10-01 20:40:26 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.4ms)[0m  SELECT "wikis".* FROM "wikis"  ORDER BY created_at DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered wikis/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 35ms (Views: 29.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/wikis/19" for 98.167.46.192 at 2017-10-01 20:40:27 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.2ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  Rendered wikis/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 31ms (Views: 26.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wikis/19/edit" for 98.167.46.192 at 2017-10-01 20:40:28 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered collaborators/_form.html.erb (1.1ms)
+  Rendered wikis/edit.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 33ms (Views: 28.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/collaborators" for 98.167.46.192 at 2017-10-01 20:40:39 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oSuXQuDHDRQa8V7TWpq+zc70SwMPOVfL/mFhlXsrX/zW+oOR1mg7V0ebdlrS3aMDBySd2E7NNVOt8fXa335t0w==", "wiki_id"=>"19", "email"=>"standard@email.com", "commit"=>"Add collaborator"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "standard@email.com"]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "collaborators" ON "users"."id" = "collaborators"."user_id" WHERE "collaborators"."wiki_id" = ? AND "users"."id" = ? LIMIT 1  [["wiki_id", 19], ["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "collaborators" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2017-10-01 20:40:39.520986"], ["updated_at", "2017-10-01 20:40:39.520986"]]
+  [1m[36m (161.3ms)[0m  [1mcommit transaction[0m
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/wikis/19/edit
+Completed 302 Found in 195ms (ActiveRecord: 162.6ms)
+
+
+Started GET "/wikis/19/edit" for 98.167.46.192 at 2017-10-01 20:40:39 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.2ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered collaborators/_form.html.erb (1.4ms)
+  Rendered wikis/edit.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 44ms (Views: 38.4ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/collaborators.19" for 98.167.46.192 at 2017-10-01 20:40:48 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [DELETE] "/collaborators.19"):
+  actionpack (4.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:20:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.8) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.8) lib/rails/engine.rb:518:in `call'
+  railties (4.2.8) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (36.1ms)
+
+
+Started DELETE "/collaborators.19" for 98.167.46.192 at 2017-10-01 22:50:59 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [DELETE] "/collaborators.19"):
+  actionpack (4.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:20:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.8) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.8) lib/rails/engine.rb:518:in `call'
+  railties (4.2.8) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (54.2ms)
+
+
+Started GET "/" for 98.167.46.192 at 2017-10-01 22:51:23 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered welcome/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 428ms (Views: 369.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/wikis" for 98.167.46.192 at 2017-10-01 22:51:26 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.4ms)[0m  SELECT "wikis".* FROM "wikis"  ORDER BY created_at DESC
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered wikis/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 65ms (Views: 30.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/wikis/19" for 98.167.46.192 at 2017-10-01 22:51:29 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.3ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  Rendered wikis/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 30ms (Views: 25.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/wikis/19/edit" for 98.167.46.192 at 2017-10-01 22:51:31 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.2ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered collaborators/_form.html.erb (3.5ms)
+  Rendered wikis/edit.html.erb within layouts/application (954.1ms)
+Completed 200 OK in 995ms (Views: 990.1ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/collaborators.19" for 98.167.46.192 at 2017-10-01 22:51:40 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [DELETE] "/collaborators.19"):
+  actionpack (4.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:20:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.8) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.8) lib/rails/engine.rb:518:in `call'
+  railties (4.2.8) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (40.9ms)
+
+
+Started DELETE "/collaborators.19" for 98.167.46.192 at 2017-10-01 22:54:01 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [DELETE] "/collaborators.19"):
+  actionpack (4.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:20:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.8) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.8) lib/rails/engine.rb:518:in `call'
+  railties (4.2.8) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (33.1ms)
+
+
+Started GET "/" for 98.167.46.192 at 2017-10-01 22:54:23 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered welcome/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 329ms (Views: 261.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/wikis" for 98.167.46.192 at 2017-10-01 22:54:27 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.6ms)[0m  SELECT "wikis".* FROM "wikis"  ORDER BY created_at DESC
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered wikis/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 58ms (Views: 25.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/wikis/19" for 98.167.46.192 at 2017-10-01 22:54:29 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.3ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  Rendered wikis/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 24ms (Views: 20.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/wikis/19/edit" for 98.167.46.192 at 2017-10-01 22:54:30 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered collaborators/_form.html.erb (2.4ms)
+  Rendered wikis/edit.html.erb within layouts/application (683.8ms)
+Completed 200 OK in 712ms (Views: 708.3ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/collaborators/19" for 98.167.46.192 at 2017-10-01 22:54:39 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZMuE/BvQ+VKcp1MXBueaYQUWcpL/ekNtavlOB75hRPQTGpAvLX/PEcHNe56OoIevzMakSb6OIfU5adpIGjR22w==", "wiki_id"=>"19", "email"=>"standard@email.com", "commit"=>"Remove collaborator", "id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mCollaborator Load (0.2ms)[0m  SELECT  "collaborators".* FROM "collaborators" WHERE "collaborators"."id" = ? LIMIT 1  [["id", nil]]
+Completed 404 Not Found in 10ms (ActiveRecord: 0.7ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Collaborator with 'id'=):
+  app/controllers/collaborators_controller.rb:33:in `destroy'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (24.9ms)
+
+
+Started GET "/" for 98.167.46.192 at 2017-10-01 22:55:24 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered welcome/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 341ms (Views: 270.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/wikis" for 98.167.46.192 at 2017-10-01 22:55:28 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.4ms)[0m  SELECT "wikis".* FROM "wikis"  ORDER BY created_at DESC
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered wikis/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 54ms (Views: 23.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/wikis/19" for 98.167.46.192 at 2017-10-01 22:55:29 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.2ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  Rendered wikis/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 22ms (Views: 18.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/wikis/19/edit" for 98.167.46.192 at 2017-10-01 22:55:30 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered collaborators/_form.html.erb (1.7ms)
+  Rendered wikis/edit.html.erb within layouts/application (635.3ms)
+Completed 200 OK in 656ms (Views: 652.3ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/collaborators/19" for 98.167.46.192 at 2017-10-01 22:55:39 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ncp7zDcKowTQWhD+FvNWK0C6Z9j2RMt/AqWp6Qd7GrhCG28fAaWVR40wOHeetEvliWqxA7ewqedRNT2moy4olw==", "wiki_id"=>"19", "email"=>"standard@email.com", "commit"=>"Remove collaborator", "id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mCollaborator Load (0.3ms)[0m  SELECT  "collaborators".* FROM "collaborators" WHERE "collaborators"."id" = ? LIMIT 1  [["id", 19]]
+Completed 404 Not Found in 11ms (ActiveRecord: 0.8ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Collaborator with 'id'=19):
+  app/controllers/collaborators_controller.rb:33:in `destroy'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.2ms)
+
+
+Started DELETE "/collaborators/19" for 98.167.46.192 at 2017-10-01 23:04:46 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6Uvk2dTjDk+6N1AMAmQhQovHwgbfiR8dZ+GhcTzNVEOemvAK4kw4DOddeIWKIzyMQhcU3Z59fYU0cTU+mJhmbA==", "wiki_id"=>"19", "email"=>"standard@email.com", "commit"=>"Remove collaborator", "id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mCollaborator Load (0.2ms)[0m  SELECT  "collaborators".* FROM "collaborators" WHERE "collaborators"."id" = ? LIMIT 1  [["id", nil]]
+Completed 404 Not Found in 20ms (ActiveRecord: 1.4ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Collaborator with 'id'={:email=>"standard@email.com"}):
+  app/controllers/collaborators_controller.rb:33:in `destroy'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (34.1ms)
+
+
+Started DELETE "/collaborators/19" for 98.167.46.192 at 2017-10-01 23:05:18 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6Uvk2dTjDk+6N1AMAmQhQovHwgbfiR8dZ+GhcTzNVEOemvAK4kw4DOddeIWKIzyMQhcU3Z59fYU0cTU+mJhmbA==", "wiki_id"=>"19", "email"=>"standard@email.com", "commit"=>"Remove collaborator", "id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mCollaborator Load (0.6ms)[0m  SELECT  "collaborators".* FROM "collaborators" WHERE "collaborators"."email" = 'standard@email.com' LIMIT 1
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 1.8ms)
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: collaborators.email: SELECT  "collaborators".* FROM "collaborators" WHERE "collaborators"."email" = 'standard@email.com' LIMIT 1):
+  app/controllers/collaborators_controller.rb:33:in `destroy'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (25.7ms)
+
+
+Started DELETE "/collaborators/19" for 98.167.46.192 at 2017-10-01 23:12:53 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6Uvk2dTjDk+6N1AMAmQhQovHwgbfiR8dZ+GhcTzNVEOemvAK4kw4DOddeIWKIzyMQhcU3Z59fYU0cTU+mJhmbA==", "wiki_id"=>"19", "email"=>"standard@email.com", "commit"=>"Remove collaborator", "id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mCollaborator Load (0.1ms)[0m  SELECT  "collaborators".* FROM "collaborators" WHERE "collaborators"."id" = ? LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 22ms (ActiveRecord: 1.6ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Collaborator with 'id'=standard@email.com):
+  app/controllers/collaborators_controller.rb:33:in `destroy'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.2ms)
+
+
+Started DELETE "/collaborators/19" for 98.167.46.192 at 2017-10-01 23:13:34 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6Uvk2dTjDk+6N1AMAmQhQovHwgbfiR8dZ+GhcTzNVEOemvAK4kw4DOddeIWKIzyMQhcU3Z59fYU0cTU+mJhmbA==", "wiki_id"=>"19", "email"=>"standard@email.com", "commit"=>"Remove collaborator", "id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mCollaborator Load (0.3ms)[0m  SELECT  "collaborators".* FROM "collaborators" WHERE "collaborators"."id" = ? LIMIT 1  [["id", 19]]
+Completed 404 Not Found in 24ms (ActiveRecord: 1.9ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Collaborator with 'id'=19):
+  app/controllers/collaborators_controller.rb:33:in `destroy'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (25.0ms)
+
+
+Started DELETE "/collaborators/19" for 98.167.46.192 at 2017-10-01 23:14:39 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6Uvk2dTjDk+6N1AMAmQhQovHwgbfiR8dZ+GhcTzNVEOemvAK4kw4DOddeIWKIzyMQhcU3Z59fYU0cTU+mJhmbA==", "wiki_id"=>"19", "email"=>"standard@email.com", "commit"=>"Remove collaborator", "id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mCollaborator Load (0.2ms)[0m  SELECT  "collaborators".* FROM "collaborators" WHERE "collaborators"."id" = ? LIMIT 1  [["id", 19]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.3ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Collaborator with 'id'=19):
+  app/controllers/collaborators_controller.rb:33:in `destroy'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.9ms)
+
+
+Started GET "/" for 98.167.46.192 at 2017-10-01 23:14:59 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered welcome/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 297ms (Views: 241.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/wikis" for 98.167.46.192 at 2017-10-01 23:15:02 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.5ms)[0m  SELECT "wikis".* FROM "wikis"  ORDER BY created_at DESC
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered wikis/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 70ms (Views: 35.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/wikis/19" for 98.167.46.192 at 2017-10-01 23:15:04 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.2ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  Rendered wikis/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 29ms (Views: 24.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/wikis/19/edit" for 98.167.46.192 at 2017-10-01 23:15:05 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 19]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered collaborators/_form.html.erb (7.8ms)
+  Rendered wikis/edit.html.erb within layouts/application (640.8ms)
+Completed 500 Internal Server Error in 646ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+     7:         <%= submit_tag 'Add collaborator' %>
+     8:       <% end %>
+     9:         <%= form_tag(collaborator_path(@wiki), action: :destroy, method: :delete) do%>
+    10:         <%= hidden_field_tag :user_id, @user.id %>
+    11:         I no longer need this collaborator! <%= text_field_tag :email %>
+    12:         <%= submit_tag 'Remove collaborator' %>
+    13:       <% end %>
+  app/views/collaborators/_form.html.erb:10:in `block in _app_views_collaborators__form_html_erb__2071678781211583330_70025242616340'
+  app/views/collaborators/_form.html.erb:9:in `_app_views_collaborators__form_html_erb__2071678781211583330_70025242616340'
+  app/views/wikis/edit.html.erb:28:in `_app_views_wikis_edit_html_erb___4263780179664925290_40341680'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (27.3ms)
+
+
+Started GET "/wikis/19/edit" for 98.167.46.192 at 2017-10-01 23:15:40 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 19]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered collaborators/_form.html.erb (1.8ms)
+  Rendered wikis/edit.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 28ms (Views: 24.3ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/collaborators/19" for 98.167.46.192 at 2017-10-01 23:15:49 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"D6t+a96OtSlTVFzQDja8oOW8lnxgIEvh/aTjgpelFql4emq46CGDag4+dFmGcaFuLGxApyHUKXmuNHfNM/Akhg==", "wiki_id"=>"19", "email"=>"standard@email.com", "commit"=>"Remove collaborator", "id"=>"19"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mCollaborator Load (0.2ms)[0m  [1mSELECT  "collaborators".* FROM "collaborators" WHERE "collaborators"."id" = ? LIMIT 1[0m  [["id", 19]]
+Completed 404 Not Found in 10ms (ActiveRecord: 0.8ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Collaborator with 'id'=19):
+  app/controllers/collaborators_controller.rb:33:in `destroy'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (33.0ms)
+
+
+Started POST "/collaborators" for 98.167.46.192 at 2017-10-01 23:19:21 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"D6t+a96OtSlTVFzQDja8oOW8lnxgIEvh/aTjgpelFql4emq46CGDag4+dFmGcaFuLGxApyHUKXmuNHfNM/Akhg==", "wiki_id"=>"19", "email"=>"standard@email.com", "commit"=>"Add collaborator"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "standard@email.com"]]
+  [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 19]]
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "collaborators" ON "users"."id" = "collaborators"."user_id" WHERE "collaborators"."wiki_id" = ? AND "users"."id" = ? LIMIT 1[0m  [["wiki_id", 19], ["id", 7]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "collaborators" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2017-10-01 23:19:21.907502"], ["updated_at", "2017-10-01 23:19:21.907502"]]
+  [1m[35m (14.4ms)[0m  commit transaction
+Redirected to https://new-rails-project-rtrunkhill.c9users.io/wikis/19/edit
+Completed 302 Found in 76ms (ActiveRecord: 16.1ms)
+
+
+Started GET "/wikis/19/edit" for 98.167.46.192 at 2017-10-01 23:19:22 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 19]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered collaborators/_form.html.erb (0.7ms)
+  Rendered wikis/edit.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 39ms (Views: 35.9ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/collaborators/19" for 98.167.46.192 at 2017-10-01 23:19:31 +0000
+Cannot render console from 98.167.46.192! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CollaboratorsController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G6Rq9sN0aqk5cXRn5Bk+BLV98xddTlJVM/uFgGsdf2dsdX4l9dtc6mQbXO5sXiPKfK0lzBy6MM1gaxHPz0hNSA==", "wiki_id"=>"19", "email"=>"standard@email.com", "commit"=>"Remove collaborator", "id"=>"19"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mCollaborator Load (0.1ms)[0m  [1mSELECT  "collaborators".* FROM "collaborators" WHERE "collaborators"."id" = ? LIMIT 1[0m  [["id", 19]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Collaborator with 'id'=19):
+  app/controllers/collaborators_controller.rb:33:in `destroy'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (24.6ms)
