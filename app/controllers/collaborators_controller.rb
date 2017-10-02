@@ -10,13 +10,13 @@ class CollaboratorsController < ApplicationController
             redirect_to edit_wiki_path(@wiki)
        
         elsif @wiki.users.include?(@user)
-            flash[:ntoice] = "A collaborator so nice you listed them twice! #{(params[:email])} is already a collaborator."
+            flash[:notice] = "A collaborator so nice you listed them twice! #{(params[:email])} is already a collaborator."
             redirect_to edit_wiki_path(@wiki)
         
         else
             @collaborator = Collaborator.new
-            @collaborator.user_id = @user_id
-            @collaborator.wiki_id = @wiki_id
+            @collaborator.user_id = @user.id
+            @collaborator.wiki_id = @wiki.id
             
             if @collaborator.save
                 flash[:notice] = "#{(params[:email])} is now a collaborator on the #{@wiki.title} wiki!"
@@ -31,7 +31,10 @@ class CollaboratorsController < ApplicationController
     
     def destroy
         @collaborator = Collaborator.find(params[:id])
-        @wiki = Collaborator.wiki
+        p "*******************************************"
+        p @collaborator
+        p "*******************************************"
+        #@wiki = Collaborator.find(params[:wiki_id])
         
         if @collaborator.destroy
             flash[:notice] = "Collaborator was removed. What will they do now?"
