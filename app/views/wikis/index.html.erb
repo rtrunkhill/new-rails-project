@@ -13,7 +13,7 @@
        <h4 class="media-heading">
          <%= link_to wiki.title, wiki %>
       </h4>
-     <% elsif (wiki.private == true && (wiki.user == current_user || current_user.admin?)) %>
+     <% elsif wiki.private == true && (wiki.user == current_user || current_user.admin? || wiki.users.include?(current_user) )%>
        <h4 class="media-heading">
          <%= link_to wiki.title, wiki %>
         <small>

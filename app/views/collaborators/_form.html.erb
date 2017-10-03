@@ -6,15 +6,17 @@
         Give this person power over my wiki! <%= text_field_tag :email %>
         <%= submit_tag 'Add collaborator' %>
       <% end %>
-        <%= form_tag(collaborator_path(@wiki), action: :destroy, method: :delete) do%>
-        <%= hidden_field_tag :wiki_id, @wiki.id %>
-        I no longer need this collaborator! <%= text_field_tag :email %>
-        <%= submit_tag 'Remove collaborator' %>
-      <% end %>
-      <%= flash[:notice] %>
     <% end %>
-<!-- <h2> list of emails so i don't have to constantly look them up in the rails console </h2>-->
-<!--<User.each do |user| %>-->
-<!--				<h4><= user.email %> </h4>-->
-<!--< end %>-->
+    
+    <% @wiki.collaborators.each do |user| %>
+    <div>
+      <%= user.user.email %>
+      <% if @wiki.user == current_user %>
+          <%= link_to "Remove collaborator", user, method: :delete %>
+      <% end %>
+    </div>
+  <% end %>
+        <%= flash[:notice] %>
+
 </div>
+

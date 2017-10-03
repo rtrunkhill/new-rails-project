@@ -38,7 +38,7 @@ class CollaboratorsController < ApplicationController
         
         if @collaborator.destroy
             flash[:notice] = "Collaborator was removed. What will they do now?"
-            redirect_to action: :index
+            redirect_to wikis_path
         else
             flash.now[:alert] = "What did you do, Ray? That Collaborator is still there!"
             render :show
